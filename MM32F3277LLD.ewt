@@ -2467,6 +2467,15 @@
                 <name>_PinMap</name>
             </group>
             <group>
+                <name>ADC</name>
+                <file>
+                    <name>$PROJ_DIR$\MM32\mLLD\ADC\MM32_ADC.c</name>
+                </file>
+                <file>
+                    <name>$PROJ_DIR$\MM32\mLLD\ADC\MM32_ADC.h</name>
+                </file>
+            </group>
+            <group>
                 <name>DAC</name>
                 <file>
                     <name>$PROJ_DIR$\MM32\mLLD\DAC\MM32_DAC.c</name>

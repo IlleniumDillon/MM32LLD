@@ -2,7 +2,7 @@
  * @Author: IlleniumDillon 147900130@qq.com
  * @Date: 2022-10-30 13:29:44
  * @LastEditors: IlleniumDillon 147900130@qq.com
- * @LastEditTime: 2022-11-17 19:25:19
+ * @LastEditTime: 2022-11-17 22:11:01
  * @FilePath: \CODE\main.c
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  */
@@ -21,10 +21,11 @@
 #include "menu.h"
 
 #include "MM32_DAC.h"
+#include "MM32_ADC.h"
 
 int main()
 {
-  Menu_loadPara();
+  /*Menu_loadPara();
 
   systick_start();
   
@@ -39,11 +40,21 @@ int main()
   MM32UART_moudleInit(&txpin2,&rxpin2,NULL,NULL,P18_device.baud);
   
   Menu_init();
-  Menu_display();
+  Menu_display();*/
+  MM32ADC_Pin pin = {.port = GPIOA, .pin = P00, .conf = INPUT_ANALOG, .moudle = ADC1, .ch = 0};
+  
+  MM32ADC_pinInit(pin);
 
+  uint16_t i = 0;
+  
   while(1)
   {
-    static uint8_t flag = 0;
+    i = MM32ADC_getData(pin);
+    if(i)
+    {
+      i = 0;
+    }
+    /*static uint8_t flag = 0;
     if(MM32GPIO_getPinState(GPIOA,P07))
     {
       MM32PIT_Close(PIT1);
@@ -62,7 +73,7 @@ int main()
       {
         MM32PIT_Start(PIT1);
       }
-    }
+    }*/
     
   }
   return 0;

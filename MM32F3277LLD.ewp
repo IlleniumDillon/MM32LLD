@@ -375,6 +375,7 @@
                     <state>$PROJ_DIR$\MM32\mLLD\FLASH</state>
                     <state>$PROJ_DIR$\Peripheral\HOST</state>
                     <state>$PROJ_DIR$\MM32\mLLD\DAC</state>
+                    <state>$PROJ_DIR$\MM32\mLLD\ADC</state>
                 </option>
                 <option>
                     <name>CCStdIncCheck</name>
@@ -2192,6 +2193,15 @@
             <name>mLLD</name>
             <group>
                 <name>_PinMap</name>
+            </group>
+            <group>
+                <name>ADC</name>
+                <file>
+                    <name>$PROJ_DIR$\MM32\mLLD\ADC\MM32_ADC.c</name>
+                </file>
+                <file>
+                    <name>$PROJ_DIR$\MM32\mLLD\ADC\MM32_ADC.h</name>
+                </file>
             </group>
             <group>
                 <name>DAC</name>
