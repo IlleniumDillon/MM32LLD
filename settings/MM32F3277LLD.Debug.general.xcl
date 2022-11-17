@@ -1,0 +1,15 @@
+"E:\Program Files\IAR Systems\Embedded Workbench 8.2\arm\bin\armproc.dll" 
+
+"E:\Program Files\IAR Systems\Embedded Workbench 8.2\arm\bin\armJET.dll" 
+
+"D:\graduation_project\CODE\Debug\Exe\MM32F3277LLD.out" 
+
+--plugin="E:\Program Files\IAR Systems\Embedded Workbench 8.2\arm\bin\armbat.dll" 
+
+--device_macro="E:\Program Files\IAR Systems\Embedded Workbench 8.2\arm\config\debugger\MindMotion\MM32F3270.dmac" 
+
+--flash_loader="E:\Program Files\IAR Systems\Embedded Workbench 8.2\arm\config\flashloader\MindMotion\FlashMM32F327xGx.board" 
+
+
+
+
