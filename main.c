@@ -25,7 +25,7 @@
 
 int main()
 {
-  /*Menu_loadPara();
+  Menu_loadPara();
 
   systick_start();
   
@@ -40,21 +40,11 @@ int main()
   MM32UART_moudleInit(&txpin2,&rxpin2,NULL,NULL,P18_device.baud);
   
   Menu_init();
-  Menu_display();*/
-  MM32ADC_Pin pin = {.port = GPIOA, .pin = P00, .conf = INPUT_ANALOG, .moudle = ADC1, .ch = 0};
-  
-  MM32ADC_pinInit(pin);
-
-  uint16_t i = 0;
+  Menu_display();
   
   while(1)
   {
-    i = MM32ADC_getData(pin);
-    if(i)
-    {
-      i = 0;
-    }
-    /*static uint8_t flag = 0;
+    static uint8_t flag = 0;
     if(MM32GPIO_getPinState(GPIOA,P07))
     {
       MM32PIT_Close(PIT1);
@@ -73,7 +63,7 @@ int main()
       {
         MM32PIT_Start(PIT1);
       }
-    }*/
+    }
     
   }
   return 0;
