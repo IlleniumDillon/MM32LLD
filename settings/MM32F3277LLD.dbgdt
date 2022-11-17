@@ -877,7 +877,7 @@
                     <item>P18_Y</item>
                     <item>target_X</item>
                     <item>target_Y</item>
-                    <item></item>
+                    <item />
                 </expressions>
                 <col-names>
                     <item>Expression</item>
