@@ -2299,6 +2299,12 @@
         <group>
             <name>Sfr</name>
             <file>
+                <name>$PROJ_DIR$\MM32\Sfr\MM32_ADCReg.h</name>
+            </file>
+            <file>
+                <name>$PROJ_DIR$\MM32\Sfr\MM32_ADCRegDef.h</name>
+            </file>
+            <file>
                 <name>$PROJ_DIR$\MM32\Sfr\MM32_CRSReg.h</name>
             </file>
             <file>

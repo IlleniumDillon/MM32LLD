@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project>
     <fileVersion>4</fileVersion>
-    <fileChecksum>1670351369</fileChecksum>
+    <fileChecksum>2355811554</fileChecksum>
     <configuration>
         <name>Debug</name>
         <outputs>
@@ -333,6 +333,8 @@
             <file>$PROJ_DIR$\MM32\mLLD\DAC\MM32_DAC.c</file>
             <file>$PROJ_DIR$\MM32\Sfr\MM32_DACReg.h</file>
             <file>$PROJ_DIR$\MM32\Sfr\MM32_DACRegDef.h</file>
+            <file>$PROJ_DIR$\MM32\Sfr\MM32_ADCReg.h</file>
+            <file>$PROJ_DIR$\MM32\Sfr\MM32_ADCRegDef.h</file>
         </outputs>
         <file>
             <name>[ROOT_NODE]</name>
@@ -1095,11 +1097,11 @@
             <inputs>
                 <tool>
                     <name>ICCARM</name>
-                    <file> 76 117 97 107 109 37 297 263 279 259 44 187 221 75 106 104 74 96 132 261 65 123 113 86 89 188 82 69 100 108 73 116 101 197 21 140 145 88 77 125 115 114 95 78 161 172 307 311 150 156 131 139 133 138 134 2 225 165 92 90 94 122 124 72</file>
+                    <file> 76 117 97 107 109 37 297 263 279 259 44 187 221 75 106 104 74 96 132 261 65 123 113 86 89 188 82 69 100 108 73 116 101 197 21 140 145 88 77 125 115 114 95 78 161 172 307 311 150 156 131 139 133 138 134 2 225 165 92 90 94 122 124 72 324 326 327</file>
                 </tool>
                 <tool>
                     <name>BICOMP</name>
-                    <file> 97 89 109 172 193 76 134 44 75 156 73 263 297 65 86 88 107 187 259 221 106 96 123 188 69 145 125 311 78 140 124 74 82 131 2 165 117 37 279 104 261 132 113 100 108 116 150 114 95 307 133 197 72 90 94 101 21 77 115 161 139 138 225 92 122</file>
+                    <file> 150 109 100 134 297 279 104 86 116 114 133 94 73 324 76 132 74 97 78 307 197 72 140 65 156 88 117 37 263 261 75 113 108 95 82 131 2 165 107 187 259 44 221 106 96 123 188 89 69 193 145 125 172 311 122 124 327 101 21 77 115 161 139 138 225 92 90 326</file>
                 </tool>
             </inputs>
         </file>
@@ -1661,6 +1663,10 @@
                 </tool>
             </inputs>
         </file>
+        <forcedrebuild>
+            <name>[MULTI_TOOL]</name>
+            <tool>ILINK</tool>
+        </forcedrebuild>
     </configuration>
     <configuration>
         <name>Release</name>
