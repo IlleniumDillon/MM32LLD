@@ -2471,6 +2471,12 @@
         <group>
             <name>P18</name>
             <file>
+                <name>$PROJ_DIR$\Peripheral\P18\P18_Analog.c</name>
+            </file>
+            <file>
+                <name>$PROJ_DIR$\Peripheral\P18\P18_Analog.h</name>
+            </file>
+            <file>
                 <name>$PROJ_DIR$\Peripheral\P18\P18_CMD.c</name>
             </file>
             <file>

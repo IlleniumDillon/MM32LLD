@@ -878,7 +878,7 @@
                     <item>target_X</item>
                     <item>target_Y</item>
                     <item>i</item>
-                    <item></item>
+                    <item />
                 </expressions>
                 <col-names>
                     <item>Expression</item>

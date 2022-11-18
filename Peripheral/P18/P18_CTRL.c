@@ -2,7 +2,7 @@
  * @Author: IlleniumDillon 147900130@qq.com
  * @Date: 2022-11-01 21:33:38
  * @LastEditors: IlleniumDillon 147900130@qq.com
- * @LastEditTime: 2022-11-15 17:52:28
+ * @LastEditTime: 2022-11-18 10:29:59
  * @FilePath: \CODE\Peripheral\P18\P18_CTRL.c
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  */
@@ -87,4 +87,17 @@ void P18_ctrlCallBack(void)
   float var[2] = {P18_X.current,P18_Y.current};
   UART_floatVarUpload(UART2,var,2);
   //uint32 time = systick_getval_ns();
+}
+
+void P18_ctrlAnalogCallBack(void)
+{
+  P18_X.current = P18_getShiftFromADC(CHANNEL0);
+  P18_Y.current = P18_getShiftFromADC(CHANNEL1);
+  P18_X.target = target_X;
+  P18_Y.target = target_Y;
+
+  float voltage1 = P18_ctrlCtrlUpdate(&P18_X, CHANNEL0);
+  float voltage2 = P18_ctrlCtrlUpdate(&P18_Y, CHANNEL1);
+
+  P18_setVoltageToDAC(voltage1, voltage2);
 }
