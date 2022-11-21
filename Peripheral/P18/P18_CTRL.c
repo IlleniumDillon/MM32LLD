@@ -2,7 +2,7 @@
  * @Author: IlleniumDillon 147900130@qq.com
  * @Date: 2022-11-01 21:33:38
  * @LastEditors: IlleniumDillon 147900130@qq.com
- * @LastEditTime: 2022-11-18 10:29:59
+ * @LastEditTime: 2022-11-21 19:34:43
  * @FilePath: \CODE\Peripheral\P18\P18_CTRL.c
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  */
@@ -12,7 +12,7 @@ PIDCFG_T P18_X = {0};
 PIDCFG_T P18_Y = {0};
 PIDCFG_T P18_Z = {0};
 
-float target_X = 20;
+float target_X = 0;
 float target_Y = 0;
 float target_Z = 0;
 
@@ -91,7 +91,7 @@ void P18_ctrlCallBack(void)
 
 void P18_ctrlAnalogCallBack(void)
 {
-  P18_X.current = P18_getShiftFromADC(CHANNEL0);
+  /*P18_X.current = P18_getShiftFromADC(CHANNEL0);
   P18_Y.current = P18_getShiftFromADC(CHANNEL1);
   P18_X.target = target_X;
   P18_Y.target = target_Y;
@@ -99,5 +99,12 @@ void P18_ctrlAnalogCallBack(void)
   float voltage1 = P18_ctrlCtrlUpdate(&P18_X, CHANNEL0);
   float voltage2 = P18_ctrlCtrlUpdate(&P18_Y, CHANNEL1);
 
-  P18_setVoltageToDAC(voltage1, voltage2);
+  P18_setVoltageToDAC(voltage1, voltage2);*/
+
+  P18_X.current = P18_getShiftFromADC(CHANNEL0);
+  P18_Y.current = P18_getShiftFromADC(CHANNEL1);
+  static uint16_t i = 0;
+  if(i==4096)i=0;
+  MM32DAC_set2ChannelData12(i,i);
+  i++;
 }
