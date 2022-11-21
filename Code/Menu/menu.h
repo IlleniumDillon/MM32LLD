@@ -87,4 +87,6 @@ void Menu_loadPara(void);
 
 void Menu_savePara(void);
 
+void Menu_getPinState(void);
+
 #endif

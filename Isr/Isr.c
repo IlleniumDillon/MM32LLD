@@ -2,7 +2,7 @@
  * @Author: IlleniumDillon 147900130@qq.com
  * @Date: 2022-11-01 22:23:55
  * @LastEditors: IlleniumDillon 147900130@qq.com
- * @LastEditTime: 2022-11-10 15:23:03
+ * @LastEditTime: 2022-11-21 18:58:35
  * @FilePath: \CODE\Isr\Isr.c
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  */
@@ -19,6 +19,19 @@ void UART4_IRQHandler(void)
 	if(UART4_ISR->B.RX_INTF)
 	{
 		UART4_ICR->B.RX_ICLR = 1;;
+        P18_uartReadCallBack();
+	}
+}
+
+void UART8_IRQHandler(void)
+{
+	if(UART8_ISR->B.TX_INTF)
+	{
+		UART8_ICR->B.TX_ICLR = 1;
+	}
+	if(UART8_ISR->B.RX_INTF)
+	{
+		UART8_ICR->B.RX_ICLR = 1;;
         P18_uartReadCallBack();
 	}
 }
@@ -43,7 +56,7 @@ void TIM6_IRQHandler (void)
 	uint16_t state = TIM6_SR->U;														// 读取中断状态
 	TIM6_SR->U &= ~state;
     //UART_floatVarUpload(UART2,&(P18_device.shift[0]),3);
-	P18_ctrlCallBack();
+	P18_ctrlAnalogCallBack();
 }
 
 void TIM7_IRQHandler (void)

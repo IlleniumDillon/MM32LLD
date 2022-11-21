@@ -2,21 +2,21 @@
  * @Author: IlleniumDillon 147900130@qq.com
  * @Date: 2022-11-05 17:00:33
  * @LastEditors: IlleniumDillon 147900130@qq.com
- * @LastEditTime: 2022-11-15 16:07:23
+ * @LastEditTime: 2022-11-21 18:51:14
  * @FilePath: \CODE\Code\Menu\menu.c
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  */
 #include "menu.h"
 
-MM32GPIO_GPIO_Pin SW_1 = {.port = GPIOA, .pin = P07, .conf = INPUT_FLOATING};
-MM32GPIO_GPIO_Pin SW_2 = {.port = GPIOA, .pin = P06, .conf = INPUT_FLOATING};
-MM32GPIO_GPIO_Pin SW_3 = {.port = GPIOA, .pin = P05, .conf = INPUT_FLOATING};
-MM32GPIO_GPIO_Pin SW_4 = {.port = GPIOA, .pin = P04, .conf = INPUT_FLOATING};
-MM32GPIO_GPIO_Pin BUT_RIGHT = {.port = GPIOE, .pin = P09, .conf = INPUT_FLOATING};
-MM32GPIO_GPIO_Pin BUT_DOWN = {.port = GPIOE, .pin = P10, .conf = INPUT_FLOATING};
-MM32GPIO_GPIO_Pin BUT_LEFT = {.port = GPIOE, .pin = P11, .conf = INPUT_FLOATING};
-MM32GPIO_GPIO_Pin BUT_OK = {.port = GPIOE, .pin = P12, .conf = INPUT_FLOATING};
-MM32GPIO_GPIO_Pin BUT_UP = {.port = GPIOE, .pin = P13, .conf = INPUT_FLOATING};
+MM32GPIO_GPIO_Pin SW_1 = {.port = GPIOF, .pin = P00, .conf = INPUT_FLOATING};
+MM32GPIO_GPIO_Pin SW_2 = {.port = GPIOC, .pin = P15, .conf = INPUT_FLOATING};
+MM32GPIO_GPIO_Pin SW_3 = {.port = GPIOC, .pin = P14, .conf = INPUT_FLOATING};
+MM32GPIO_GPIO_Pin SW_4 = {.port = GPIOC, .pin = P13, .conf = INPUT_FLOATING};
+MM32GPIO_GPIO_Pin BUT_RIGHT = {.port = GPIOF, .pin = P05, .conf = INPUT_FLOATING};
+MM32GPIO_GPIO_Pin BUT_DOWN = {.port = GPIOF, .pin = P02, .conf = INPUT_FLOATING};
+MM32GPIO_GPIO_Pin BUT_LEFT = {.port = GPIOF, .pin = P01, .conf = INPUT_FLOATING};
+MM32GPIO_GPIO_Pin BUT_OK = {.port = GPIOF, .pin = P03, .conf = INPUT_FLOATING};
+MM32GPIO_GPIO_Pin BUT_UP = {.port = GPIOF, .pin = P04, .conf = INPUT_FLOATING};
 
 menuNode menuSpace[MENUSPZCESIZE] = {0};
 uint8_t menuCurLev = 0;
@@ -89,16 +89,16 @@ void Menu_init(void)
     MM32GPIO_setPinConfig(SW_2.port,SW_2.pin,SW_2.conf);
     MM32GPIO_setPinConfig(SW_3.port,SW_3.pin,SW_3.conf);
     MM32GPIO_setPinConfig(SW_4.port,SW_4.pin,SW_4.conf);
-    //MM32GPIO_setPinConfig(BUT_RIGHT.port,BUT_RIGHT.pin,BUT_RIGHT.conf);
-    //MM32GPIO_setPinConfig(BUT_DOWN.port,BUT_DOWN.pin,BUT_DOWN.conf);
-    //MM32GPIO_setPinConfig(BUT_LEFT.port,BUT_LEFT.pin,BUT_LEFT.conf);
-    //MM32GPIO_setPinConfig(BUT_OK.port,BUT_OK.pin,BUT_OK.conf);
-    //MM32GPIO_setPinConfig(BUT_UP.port,BUT_UP.pin,BUT_UP.conf);
-    MM32EXTI_pinInit(BUT_RIGHT,RISING,10);
+    MM32GPIO_setPinConfig(BUT_RIGHT.port,BUT_RIGHT.pin,BUT_RIGHT.conf);
+    MM32GPIO_setPinConfig(BUT_DOWN.port,BUT_DOWN.pin,BUT_DOWN.conf);
+    MM32GPIO_setPinConfig(BUT_LEFT.port,BUT_LEFT.pin,BUT_LEFT.conf);
+    MM32GPIO_setPinConfig(BUT_OK.port,BUT_OK.pin,BUT_OK.conf);
+    MM32GPIO_setPinConfig(BUT_UP.port,BUT_UP.pin,BUT_UP.conf);
+    /*MM32EXTI_pinInit(BUT_RIGHT,RISING,10);
     MM32EXTI_pinInit(BUT_DOWN,RISING,11);
     MM32EXTI_pinInit(BUT_LEFT,RISING,12);
     MM32EXTI_pinInit(BUT_OK,RISING,13);
-    MM32EXTI_pinInit(BUT_UP,RISING,14);
+    MM32EXTI_pinInit(BUT_UP,RISING,14);*/
 
     OLED_init();
     //OLED_Buffer_Upload(&DISP_image_100thAnniversary[0][0]);
@@ -219,6 +219,7 @@ void Menu_display(void)
 
 void Menu_loop(void)
 {
+    Menu_getPinState();
     uint8_t temp = 0;
     if(menuCurLev==0)
     {
@@ -288,4 +289,41 @@ void Menu_savePara(void)
     MM32FLASH_erasePage(0);
     MM32FLASH_writePage(0,data);
     nvic_interrput_enable();
+}
+
+void Menu_getPinState(void)
+{
+    keyPressFlag = 0;
+    if(MM32GPIO_getPinState(BUT_RIGHT.port,BUT_RIGHT.pin) || MM32GPIO_getPinState(BUT_DOWN.port,BUT_DOWN.pin) ||
+        MM32GPIO_getPinState(BUT_LEFT.port,BUT_LEFT.pin) || MM32GPIO_getPinState(BUT_OK.port,BUT_OK.pin) ||
+        MM32GPIO_getPinState(BUT_UP.port,BUT_UP.pin))
+    {
+        int i = 1500000;
+        while(i--);
+
+        if(MM32GPIO_getPinState(BUT_RIGHT.port,BUT_RIGHT.pin))
+        {
+            keyPressFlag |= KEYPRESS_RIGHT;
+        }
+        else if(MM32GPIO_getPinState(BUT_DOWN.port,BUT_DOWN.pin))
+        {
+            keyPressFlag |= KEYPRESS_DOWN;
+        }
+        else if(MM32GPIO_getPinState(BUT_LEFT.port,BUT_LEFT.pin))
+        {
+            keyPressFlag |= KEYPRESS_LEFT;
+        }
+        else if(MM32GPIO_getPinState(BUT_OK.port,BUT_OK.pin))
+        {
+            keyPressFlag |= KEYPRESS_OK;
+        }
+        else if(MM32GPIO_getPinState(BUT_UP.port,BUT_UP.pin))
+        {
+            keyPressFlag |= KEYPRESS_UP;
+        }
+        else
+        {
+            keyPressFlag = 0;
+        }
+    }
 }

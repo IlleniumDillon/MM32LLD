@@ -2,15 +2,15 @@
  * @Author: IlleniumDillon 147900130@qq.com
  * @Date: 2022-11-18 09:49:03
  * @LastEditors: IlleniumDillon 147900130@qq.com
- * @LastEditTime: 2022-11-18 10:24:53
+ * @LastEditTime: 2022-11-21 19:04:22
  * @FilePath: \CODE\Peripheral\P18\P18_Analog.c
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  */
 #include "P18_Analog.h"
 
 MM32ADC_Pin P18_ADCPin1 = {.port = GPIOA, .pin = P00, .conf = INPUT_FLOATING, .moudle = ADC1, .ch = 0};
-MM32ADC_Pin P18_ADCPin2 = {.port = GPIOA, .pin = P01, .conf = INPUT_FLOATING, .moudle = ADC1, .ch = 1};
-MM32ADC_Pin P18_ADCPin3 = {.port = GPIOA, .pin = P02, .conf = INPUT_FLOATING, .moudle = ADC1, .ch = 2};
+MM32ADC_Pin P18_ADCPin2 = {.port = GPIOA, .pin = P01, .conf = INPUT_FLOATING, .moudle = ADC2, .ch = 1};
+MM32ADC_Pin P18_ADCPin3 = {.port = GPIOA, .pin = P02, .conf = INPUT_FLOATING, .moudle = ADC3, .ch = 2};
 
 MM32ADC_Pin P18_ADCPinCom = {.port = GPIOA, .pin = P03, .conf = INPUT_FLOATING, .moudle = ADC1, .ch = 3};
 
@@ -44,7 +44,7 @@ float P18_getShiftFromADC(P18_channel_t channel)
 
     for(uint8_t i = 0; i < samTime; i++)
     {
-        float data = (float)MM32ADC_getData(srcpin) - (float)MM32ADC_getData(compin);
+        float data = (float)MM32ADC_getData(srcpin);// - (float)MM32ADC_getData(compin);
         if(data > max) max = data;
         if(data < min) min = data;
         sum += data;

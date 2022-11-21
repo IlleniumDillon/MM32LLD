@@ -2,7 +2,7 @@
  * @Author: IlleniumDillon 147900130@qq.com
  * @Date: 2022-10-30 13:29:44
  * @LastEditors: IlleniumDillon 147900130@qq.com
- * @LastEditTime: 2022-11-17 22:11:01
+ * @LastEditTime: 2022-11-21 19:09:55
  * @FilePath: \CODE\main.c
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  */
@@ -25,6 +25,22 @@
 
 int main()
 {
+    P18_save_t save = {0};
+    uint8_t data[1024] = {0};
+    
+    save.baud = 115200;
+    save.fbTime = P18_device.fbTime;
+    memcpy(save.P,P18_device.P,3*sizeof(float));
+    memcpy(save.I,P18_device.I,3*sizeof(float));
+    memcpy(save.D,P18_device.D,3*sizeof(float));
+
+    memcpy(data,&save,sizeof(save));
+
+    nvic_interrput_disable();
+    MM32FLASH_erasePage(0);
+    MM32FLASH_writePage(0,data);
+    nvic_interrput_enable();
+
   Menu_loadPara();
 
   systick_start();
@@ -35,17 +51,19 @@ int main()
   MM32_UART* m = (MM32_UART*)UART2;
   m->IER.B.RX_IEN = 1;
   nvic_init(UART2_IRQn, 0x02, 0x00, 1);
-  MM32UART_TXPin txpin2 = {.port = GPIOA, .pin = P00, .conf = AF_PUSHPULL, .af = AF8, .moudle = UART4};
-  MM32UART_RXPin rxpin2 = {.port = GPIOA, .pin = P01, .conf = INPUT_FLOATING, .af = AF8, .moudle = UART4};
-  MM32UART_moudleInit(&txpin2,&rxpin2,NULL,NULL,P18_device.baud);
-  
+  MM32UART_TXPin txpin2 = {.port = GPIOD, .pin = P00, .conf = AF_PUSHPULL, .af = AF8, .moudle = UART8};
+  MM32UART_RXPin rxpin2 = {.port = GPIOD, .pin = P01, .conf = INPUT_FLOATING, .af = AF8, .moudle = UART8};
+  MM32UART_moudleInit(&txpin2,&rxpin2,NULL,NULL,9600);
+
+  P18_analogPinInit();
+
   Menu_init();
   Menu_display();
   
   while(1)
   {
     static uint8_t flag = 0;
-    if(MM32GPIO_getPinState(GPIOA,P07))
+    if(MM32GPIO_getPinState(GPIOF,P00))
     {
       MM32PIT_Close(PIT1);
       MM32PIT_Start(PIT2);
