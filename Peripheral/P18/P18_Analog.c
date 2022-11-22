@@ -2,7 +2,7 @@
  * @Author: IlleniumDillon 147900130@qq.com
  * @Date: 2022-11-18 09:49:03
  * @LastEditors: IlleniumDillon 147900130@qq.com
- * @LastEditTime: 2022-11-21 19:04:22
+ * @LastEditTime: 2022-11-22 18:04:40
  * @FilePath: \CODE\Peripheral\P18\P18_Analog.c
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  */
@@ -25,7 +25,7 @@ void P18_analogPinInit(void)
     MM32ADC_pinInit(P18_ADCPinCom);
 }
 
-float P18_getShiftFromADC(P18_channel_t channel)
+float P18_getVoltageFromADC(P18_channel_t channel)
 {
     MM32ADC_Pin compin = P18_ADCPinCom;
     MM32ADC_Pin srcpin;
@@ -51,13 +51,16 @@ float P18_getShiftFromADC(P18_channel_t channel)
     }
     sum = (sum - max - min) / (samTime - 2);
     sum = sum / 4096;
-    return sum * 350;
+    return sum * 10;
 }
 
 void P18_setVoltageToDAC(float voltage1, float voltage2)
-{
-    uint16_t data1 = (uint16_t)(voltage1 / 120 * 10 * 4096);
-    uint16_t data2 = (uint16_t)(voltage2 / 120 * 10 * 4096);
+{   
+    if(voltage1 > 9.9)voltage1 = 9.9;
+    if(voltage2 > 9.9)voltage2 = 9.9;
+
+    uint16_t data1 = (uint16_t)(voltage1 / 10 * 4096);
+    uint16_t data2 = (uint16_t)(voltage2 / 10 * 4096);
 
     MM32DAC_set2ChannelData12(data1,data2);
 }
