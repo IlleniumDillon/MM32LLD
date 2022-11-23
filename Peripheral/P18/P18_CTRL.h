@@ -2,7 +2,7 @@
  * @Author: IlleniumDillon 147900130@qq.com
  * @Date: 2022-11-01 21:33:38
  * @LastEditors: IlleniumDillon 147900130@qq.com
- * @LastEditTime: 2022-11-18 10:27:37
+ * @LastEditTime: 2022-11-23 12:17:15
  * @FilePath: \CODE\Peripheral\P18\P18_CTRL.h
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  */
@@ -41,6 +41,7 @@ extern PIDCFG_T P18_X,P18_Y,P18_Z;
 extern float target_X;
 extern float target_Y;
 extern float target_Z;
+extern uint8_t transeFlag;
 
 void P18_devCheck(void);
 

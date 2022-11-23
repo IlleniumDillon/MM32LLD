@@ -2,7 +2,7 @@
  * @Author: IlleniumDillon 147900130@qq.com
  * @Date: 2022-11-10 15:58:38
  * @LastEditors: IlleniumDillon 147900130@qq.com
- * @LastEditTime: 2022-11-21 18:46:51
+ * @LastEditTime: 2022-11-23 13:00:47
  * @FilePath: \CODE\Code\Menu\menuTask.c
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  */
@@ -502,7 +502,7 @@ void menu_CH2Set(void)
     OLED_clearBuf();
     oled_refresh = 1;
     OLED_clearBuf();
-    OLED_printf(0,0,">>./CH1 Set");
+    OLED_printf(0,0,">>./CH2 Set");
     //OLED_printf(6,3,"[step]:%d   ",step);
     OLED_printf(0,4,">");
     OLED_printf(6,4,"P:%f   ",P18_device.P[1]);
@@ -537,7 +537,7 @@ void menu_CH2Set(void)
             }
             flag = 0;
             keyPressFlag = 0;
-            OLED_printf(0,0,">>./CH1 Set");
+            OLED_printf(0,0,">>./CH2 Set");
             OLED_printf(0,4,">");
             OLED_printf(6,4,"P:%f   ",P18_device.P[1]);
             OLED_printf(6,5,"I:%f   ",P18_device.I[1]);
@@ -548,7 +548,7 @@ void menu_CH2Set(void)
         {
             keyPressFlag = 0;
             OLED_clearBuf();
-            OLED_printf(0,0,">>./CH1 Set");
+            OLED_printf(0,0,">>./CH2 Set");
             OLED_printf(6,4,"P:%f   ",P18_device.P[1]);
             OLED_printf(6,5,"I:%f   ",P18_device.I[1]);
             OLED_printf(6,6,"D:%f   ",P18_device.D[1]);
@@ -566,7 +566,7 @@ void menu_CH2Set(void)
         {
             keyPressFlag = 0;
             OLED_clearBuf();
-            OLED_printf(0,0,">>./CH1 Set");
+            OLED_printf(0,0,">>./CH2 Set");
             OLED_printf(6,4,"P:%f   ",P18_device.P[1]);
             OLED_printf(6,5,"I:%f   ",P18_device.I[1]);
             OLED_printf(6,6,"D:%f   ",P18_device.D[1]);

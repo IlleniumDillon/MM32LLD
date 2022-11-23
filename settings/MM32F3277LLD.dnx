@@ -45,17 +45,17 @@
         <JetConnSerialNo>SEEKFREE CMSIS-DAP V2:0</JetConnSerialNo>
         <JetConnFoundProbes />
         <PrevWtdReset>Hardware</PrevWtdReset>
-        <OnlineReset>Software</OnlineReset>
         <DisableInterrupts>0</DisableInterrupts>
         <LeaveRunning>0</LeaveRunning>
         <MultiCoreRunAll>0</MultiCoreRunAll>
+        <OnlineReset>Software</OnlineReset>
     </Jet>
     <PlDriver>
         <FirstRun>0</FirstRun>
         <MemConfigValue>E:\Program Files\IAR Systems\Embedded Workbench 8.2\arm\CONFIG\debugger\MindMotion\MM32F3270.ddf</MemConfigValue>
     </PlDriver>
     <DebugChecksum>
-        <Checksum>2626054810</Checksum>
+        <Checksum>2250755528</Checksum>
     </DebugChecksum>
     <Exceptions>
         <StopOnUncaught>_ 0</StopOnUncaught>
@@ -116,15 +116,6 @@
         <EventLSU>0</EventLSU>
         <EventSLEEP>0</EventSLEEP>
     </SWOTraceWindow>
-    <TermIOLog>
-        <LoggingEnabled>_ 0</LoggingEnabled>
-        <LogFile>_ ""</LogFile>
-    </TermIOLog>
-    <LogFile>
-        <LoggingEnabled>_ 0</LoggingEnabled>
-        <LogFile>_ ""</LogFile>
-        <Category>_ 0</Category>
-    </LogFile>
     <DisassembleMode>
         <mode>0</mode>
     </DisassembleMode>
@@ -135,6 +126,15 @@
         <Bp3>_ 0 "EMUL_CODE" "{$PROJ_DIR$\Peripheral\SWSDIO\SWSDIO.c}.135.11" 0 0 1 "" 0 "" 0</Bp3>
         <Count>4</Count>
     </Breakpoints2>
+    <TermIOLog>
+        <LoggingEnabled>_ 0</LoggingEnabled>
+        <LogFile>_ ""</LogFile>
+    </TermIOLog>
+    <LogFile>
+        <LoggingEnabled>_ 0</LoggingEnabled>
+        <LogFile>_ ""</LogFile>
+        <Category>_ 0</Category>
+    </LogFile>
     <Aliases>
         <Count>0</Count>
         <SuppressDialog>0</SuppressDialog>

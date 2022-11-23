@@ -16,6 +16,8 @@ float target_X = 0;
 float target_Y = 0;
 float target_Z = 0;
 
+uint8_t transeFlag = 1;
+
 void P18_ctrlStateUpdate(void)
 {
   P18_X.target = target_X;
@@ -100,13 +102,13 @@ void P18_ctrlAnalogCallBack(void)
   if(i == 8001) i = 0;
   if(i<4000)
   {
-    target_X = 5;
-    target_Y = 5;
+    target_X = 1;
+    target_Y = 1;
   }
   else
   {
-    target_X = 1;
-    target_Y = 1;
+    target_X = 5;
+    target_Y = 5;
   }
   
   P18_X.current = P18_getVoltageFromADC(CHANNEL0);
@@ -118,6 +120,7 @@ void P18_ctrlAnalogCallBack(void)
   float voltage2 = P18_ctrlCtrlUpdate(&P18_Y, CHANNEL1);
   /*voltage1 = target_X;
   voltage2 = target_Y;*/
+  transeFlag = 1;
   P18_setVoltageToDAC(voltage1, voltage2);
 
   /*P18_X.current = P18_getShiftFromADC(CHANNEL0);

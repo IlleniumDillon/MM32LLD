@@ -2,7 +2,7 @@
  * @Author: IlleniumDillon 147900130@qq.com
  * @Date: 2022-10-30 13:29:44
  * @LastEditors: IlleniumDillon 147900130@qq.com
- * @LastEditTime: 2022-11-22 15:53:58
+ * @LastEditTime: 2022-11-23 12:20:14
  * @FilePath: \CODE\main.c
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  */
@@ -71,26 +71,40 @@ int main()
     static uint8_t flag = 0;
     if(MM32GPIO_getPinState(GPIOF,P00))
     {
+      P18_X.error = 0;
+      P18_X.error_1 = 0;
+      P18_X.error_2 = 0;
+      P18_X.output = 0;
+      P18_Y.error = 0;
+      P18_Y.error_1 = 0;
+      P18_Y.error_2 = 0;
+      P18_Y.output = 0;
       MM32PIT_Close(PIT1);
       MM32PIT_Start(PIT2);
       Menu_loop();
+      transeFlag = 1;
     }
     else
     {
       MM32PIT_Close(PIT2);
       if(flag==0)
       {
+        transeFlag = 0;
         MM32PIT_timerTaskInit(PIT1,1000,0);
         flag = 1;
       }
       else
       {
+        transeFlag = 0;
         MM32PIT_Start(PIT1);
       }
     }
 
-    float data[4] = {P18_X.output,P18_X.current,P18_Y.output,P18_Y.output};
-    UART_floatVarUpload(UART2,data,4);
+    if(transeFlag)
+    {
+      float data[4] = {P18_X.output,P18_X.current,P18_Y.output,P18_Y.current};
+      UART_floatVarUpload(UART2,data,4);
+    }
   }
   return 0;
 }
