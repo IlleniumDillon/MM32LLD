@@ -2,7 +2,7 @@
  * @Author: IlleniumDillon 147900130@qq.com
  * @Date: 2022-11-05 19:44:22
  * @LastEditors: IlleniumDillon 147900130@qq.com
- * @LastEditTime: 2022-11-05 20:57:44
+ * @LastEditTime: 2022-11-23 14:39:54
  * @FilePath: \CODE\MM32\mLLD\EXTI\MM32_EXTI.c
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  */
@@ -10,8 +10,9 @@
 
 void MM32EXTI_pinInit(MM32GPIO_GPIO_Pin pin, MM32EXTI_Trigger trigger, uint8_t pro)
 {
+    //使能SYSCFG模块的时钟
     MM32RCC_enableSYSCFG();
-
+    //初始化引脚
     MM32GPIO_setPinConfig(pin.port,pin.pin,pin.conf);
     
     uint32_t mask;
@@ -70,6 +71,7 @@ void MM32EXTI_pinInit(MM32GPIO_GPIO_Pin pin, MM32EXTI_Trigger trigger, uint8_t p
         SYSCFG_EXTICR4->U = mask | (((uint32_t)pin.port - (uint32_t)GPIOA_BASE)/0x400) << ((pin.pin % 4) * 4);
     }
     
+    //使能通道中断
     switch (pin.pin)
     {
     case P00:        nvic_init(EXTI0_IRQn,pro,0x00,1);        break;
@@ -91,6 +93,7 @@ void MM32EXTI_pinInit(MM32GPIO_GPIO_Pin pin, MM32EXTI_Trigger trigger, uint8_t p
     default:        break;
     }
 
+    //使能引脚的外部中断
     MM32EXTI_enable(pin);
 }
 

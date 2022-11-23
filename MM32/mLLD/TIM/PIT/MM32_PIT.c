@@ -1,12 +1,21 @@
+/*
+ * @Author: IlleniumDillon 147900130@qq.com
+ * @Date: 2022-11-02 21:32:58
+ * @LastEditors: IlleniumDillon 147900130@qq.com
+ * @LastEditTime: 2022-11-23 17:01:33
+ * @FilePath: \CODE\MM32\mLLD\TIM\PIT\MM32_PIT.c
+ * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
+ */
 #include "MM32_PIT.h"
 
 void MM32PIT_timerTaskInit(MM32PIT_Moudle module, uint32_t freq, uint32_t pro)
 {
     extern unsigned int SystemCoreClock;
-
+    //模块指针
     MM32_TIM_6_7* m = (MM32_TIM_6_7*)module;
     IRQn_Type irq;
 
+    //
     switch (module)
     {
         case PIT1:        {MM32RCC_enableTIM6(); irq = TIM6_IRQn;}        break;
