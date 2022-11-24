@@ -2,22 +2,27 @@
  * @Author: IlleniumDillon 147900130@qq.com
  * @Date: 2022-11-01 21:33:38
  * @LastEditors: IlleniumDillon 147900130@qq.com
- * @LastEditTime: 2022-11-22 18:44:55
+ * @LastEditTime: 2022-11-24 11:50:37
  * @FilePath: \CODE\Peripheral\P18\P18_CTRL.c
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  */
 #include "P18_CTRL.h"
 
+//控制结构体
 PIDCFG_T P18_X = {0};
 PIDCFG_T P18_Y = {0};
 PIDCFG_T P18_Z = {0};
 
+//三通道目标值
 float target_X = 0;
 float target_Y = 0;
 float target_Z = 0;
 
+//反馈更新标记
 uint8_t transeFlag = 1;
 
+/// @brief 反馈及目标值更新
+/// @param  
 void P18_ctrlStateUpdate(void)
 {
   P18_X.target = target_X;
@@ -28,6 +33,10 @@ void P18_ctrlStateUpdate(void)
   P18_Z.current = P18_device.shift[2];
 }
 
+/// @brief 一次控制
+/// @param pid 控制结构体
+/// @param ch 通道号
+/// @return 
 float P18_ctrlCtrlUpdate(PIDCFG_T* pid,uint8_t ch)
 {
   pid->kp = P18_device.P[ch];
