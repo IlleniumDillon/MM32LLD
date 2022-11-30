@@ -2,7 +2,7 @@
  * @Author: IlleniumDillon 147900130@qq.com
  * @Date: 2022-11-01 21:33:38
  * @LastEditors: IlleniumDillon 147900130@qq.com
- * @LastEditTime: 2022-11-24 11:50:37
+ * @LastEditTime: 2022-11-30 21:15:46
  * @FilePath: \CODE\Peripheral\P18\P18_CTRL.c
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  */
@@ -106,7 +106,7 @@ void P18_ctrlCallBack(void)
 
 void P18_ctrlAnalogCallBack(void)
 {
-  static int i = 0;
+  /*static int i = 0;
   i++;
   if(i == 8001) i = 0;
   if(i<4000)
@@ -118,7 +118,7 @@ void P18_ctrlAnalogCallBack(void)
   {
     target_X = 5;
     target_Y = 5;
-  }
+  }*/
   
   P18_X.current = P18_getVoltageFromADC(CHANNEL0);
   P18_Y.current = P18_getVoltageFromADC(CHANNEL1);

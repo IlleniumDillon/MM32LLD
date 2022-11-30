@@ -2,7 +2,7 @@
  * @Author: IlleniumDillon 147900130@qq.com
  * @Date: 2022-10-30 13:29:44
  * @LastEditors: IlleniumDillon 147900130@qq.com
- * @LastEditTime: 2022-11-23 12:20:14
+ * @LastEditTime: 2022-11-30 21:06:18
  * @FilePath: \CODE\main.c
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  */
@@ -53,7 +53,7 @@ int main()
   
   MM32UART_TXPin txpin = {.port = GPIOD, .pin = P05, .conf = AF_PUSHPULL, .af = AF7, .moudle = UART2};
   MM32UART_RXPin rxpin = {.port = GPIOD, .pin = P06, .conf = INPUT_FLOATING, .af = AF7, .moudle = UART2};
-  MM32UART_moudleInit(&txpin,&rxpin,NULL,NULL,1152000);
+  MM32UART_moudleInit(&txpin,&rxpin,NULL,NULL,115200);
   MM32_UART* m = (MM32_UART*)UART2;
   m->IER.B.RX_IEN = 1;
   nvic_init(UART2_IRQn, 0x02, 0x00, 1);
@@ -68,7 +68,7 @@ int main()
 
   while(1)
   {
-    static uint8_t flag = 0;
+    static uint8_t irqOpenFlag = 0;
     if(MM32GPIO_getPinState(GPIOF,P00))
     {
       P18_X.error = 0;
@@ -87,23 +87,26 @@ int main()
     else
     {
       MM32PIT_Close(PIT2);
-      if(flag==0)
+      if(irqOpenFlag==0)
       {
         transeFlag = 0;
         MM32PIT_timerTaskInit(PIT1,1000,0);
-        flag = 1;
+        irqOpenFlag = 1;
       }
       else
       {
         transeFlag = 0;
         MM32PIT_Start(PIT1);
       }
+      OLED_Printf6x8(78,2,"x:%.3f  ",P18_X.target);
+      OLED_Printf6x8(78,3,"y:%.3f  ",P18_Y.target);
     }
 
     if(transeFlag)
     {
       float data[4] = {P18_X.output,P18_X.current,P18_Y.output,P18_Y.current};
-      UART_floatVarUpload(UART2,data,4);
+      //UART_floatVarUpload(UART2,data,4);//通过USB-B传输
+      UART_floatVarUpload(UART8,data,4);//通过RS232-USB传输
     }
   }
   return 0;
