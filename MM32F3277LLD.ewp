@@ -2202,6 +2202,12 @@
                 <file>
                     <name>$PROJ_DIR$\MM32\mLLD\ADC\MM32_ADC.h</name>
                 </file>
+                <file>
+                    <name>$PROJ_DIR$\MM32\mLLD\ADC\MM32_ADCDMA.c</name>
+                </file>
+                <file>
+                    <name>$PROJ_DIR$\MM32\mLLD\ADC\MM32_ADCDMA.h</name>
+                </file>
             </group>
             <group>
                 <name>DAC</name>
