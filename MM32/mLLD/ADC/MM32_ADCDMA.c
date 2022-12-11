@@ -2,7 +2,7 @@
  * @Author: IlleniumDillon 147900130@qq.com
  * @Date: 2022-12-11 19:56:08
  * @LastEditors: IlleniumDillon 147900130@qq.com
- * @LastEditTime: 2022-12-11 20:56:03
+ * @LastEditTime: 2022-12-11 21:25:16
  * @FilePath: \CODE\MM32\mLLD\ADC\MM32_ADCDMA.c
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  */
@@ -43,7 +43,7 @@ void _ADCDMA_moudleInit(MM32ADC_Pin pin)
     moudle->ADCFG.B.ADEN = 1;
 }
 
-void MM32ADCDMA_pinInit(MM32ADC_Pin pin, uint16_t* dataPtr, uint32_t size)
+void MM32ADCDMA_pinInit(MM32ADC_Pin pin, void* dataPtr, uint32_t size)
 {
     MM32_DMA* moudle = NULL;
     MM32_DMA_CCR1* CCR;
@@ -91,9 +91,9 @@ void MM32ADCDMA_pinInit(MM32ADC_Pin pin, uint16_t* dataPtr, uint32_t size)
     //设置高优先级
     CCR->B.PL = 2;
     //存储器数据宽度16bit
-    CCR->B.MSIZE = 1;
+    CCR->B.MSIZE = 2;
     //外设数据宽度16bit
-    CCR->B.PSIZE = 1;
+    CCR->B.PSIZE = 2;
     //存储器地址递增
     CCR->B.MINC = 1;
     //从外设读
@@ -119,6 +119,21 @@ void MM32ADCDMA_startADCDMA(MM32ADC_Pin pin)
 {
     //ADC模块指针
     MM32_ADC* moudle = (MM32_ADC*)pin.moudle;
+    MM32_DMA_CCR1* CCR;
+    switch (pin.moudle)
+    {
+    case ADC1:        
+        CCR = (MM32_DMA_CCR1*)DMA1_DMA_CCR1;
+    break;
+    case ADC2:       
+        CCR = (MM32_DMA_CCR1*)DMA1_DMA_CCR2;
+    break;
+    case ADC3:        
+        CCR = (MM32_DMA_CCR1*)DMA2_DMA_CCR5;
+    break;
+    default:        return;
+    }
+    CCR->B.EN = 1;
     moudle->ADCR.B.ADST = 1;
 }
 
@@ -127,4 +142,19 @@ void MM32ADCDMA_stopADCDMA(MM32ADC_Pin pin)
     //ADC模块指针
     MM32_ADC* moudle = (MM32_ADC*)pin.moudle;
     moudle->ADCR.B.ADST = 0;
+    MM32_DMA_CCR1* CCR;
+    switch (pin.moudle)
+    {
+    case ADC1:        
+        CCR = (MM32_DMA_CCR1*)DMA1_DMA_CCR1;
+    break;
+    case ADC2:       
+        CCR = (MM32_DMA_CCR1*)DMA1_DMA_CCR2;
+    break;
+    case ADC3:        
+        CCR = (MM32_DMA_CCR1*)DMA2_DMA_CCR5;
+    break;
+    default:        return;
+    }
+    CCR->B.EN = 0;
 }

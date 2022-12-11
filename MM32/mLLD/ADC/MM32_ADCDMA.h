@@ -17,7 +17,7 @@ extern uint8_t ADC1_DMADone;
 extern uint8_t ADC2_DMADone;
 extern uint8_t ADC3_DMADone;
 
-void MM32ADCDMA_pinInit(MM32ADC_Pin pin, uint16_t* dataPtr, uint32_t size);
+void MM32ADCDMA_pinInit(MM32ADC_Pin pin, void* dataPtr, uint32_t size);
 
 void MM32ADCDMA_startADCDMA(MM32ADC_Pin pin);
 
