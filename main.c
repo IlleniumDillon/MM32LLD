@@ -2,7 +2,7 @@
  * @Author: IlleniumDillon 147900130@qq.com
  * @Date: 2022-10-30 13:29:44
  * @LastEditors: IlleniumDillon 147900130@qq.com
- * @LastEditTime: 2022-12-12 14:09:51
+ * @LastEditTime: 2022-12-12 16:12:04
  * @FilePath: \CODE\main.c
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  */
@@ -22,30 +22,49 @@
 
 #include "MM32_DAC.h"
 #include "MM32_ADC.h"
-#include "MM32_ADCDMA.h"
 
 int main()
 {
-  uint16_t data1[10] = {0};
-  uint16_t data2[10] = {0};
-  uint16_t data3[10] = {0};
-  MM32ADC_Pin ADCPin1 = {.port = GPIOA, .pin = P00, .conf = INPUT_FLOATING, .moudle = ADC1, .ch = 0};
-  MM32ADC_Pin ADCPin2 = {.port = GPIOA, .pin = P01, .conf = INPUT_FLOATING, .moudle = ADC2, .ch = 1};
-  MM32ADC_Pin ADCPin3 = {.port = GPIOA, .pin = P02, .conf = INPUT_FLOATING, .moudle = ADC3, .ch = 2};
-  MM32ADCDMA_pinInit(ADCPin1,data1,10);
-  MM32ADCDMA_pinInit(ADCPin2,data2,10);
-  MM32ADCDMA_pinInit(ADCPin3,data3,10);
+  Menu_loadPara();
+
+  systick_start();
+  
+  MM32UART_TXPin txpin = {.port = GPIOD, .pin = P05, .conf = AF_PUSHPULL, .af = AF7, .moudle = UART2};
+  MM32UART_RXPin rxpin = {.port = GPIOD, .pin = P06, .conf = INPUT_FLOATING, .af = AF7, .moudle = UART2};
+  MM32UART_moudleInit(&txpin,&rxpin,NULL,NULL,1152000);
+  MM32_UART* m = (MM32_UART*)UART2;
+  m->IER.B.RX_IEN = 1;
+  nvic_init(UART2_IRQn, 0x02, 0x00, 1);
+  MM32UART_TXPin txpin2 = {.port = GPIOA, .pin = P00, .conf = AF_PUSHPULL, .af = AF8, .moudle = UART4};
+  MM32UART_RXPin rxpin2 = {.port = GPIOA, .pin = P01, .conf = INPUT_FLOATING, .af = AF8, .moudle = UART4};
+  MM32UART_moudleInit(&txpin2,&rxpin2,NULL,NULL,P18_device.baud);
+  
+  Menu_init();
+  Menu_display();
+  
   while(1)
   {
-    MM32ADCDMA_startADCDMA(ADCPin1);
-    MM32ADCDMA_startADCDMA(ADCPin2);
-    MM32ADCDMA_startADCDMA(ADCPin3);
-    while(ADC1_DMADone != 1);
-    while(ADC2_DMADone != 1);
-    while(ADC3_DMADone != 1);
-    ADC1_DMADone = 0;
-    ADC2_DMADone = 0;
-    ADC3_DMADone = 0;
+    static uint8_t flag = 0;
+    if(MM32GPIO_getPinState(GPIOA,P07))
+    {
+      MM32PIT_Close(PIT1);
+      MM32PIT_Start(PIT2);
+      Menu_loop();
+    }
+    else
+    {
+      MM32PIT_Close(PIT2);
+      if(flag==0)
+      {
+        MM32PIT_timerTaskInit(PIT1,10,0);
+        flag = 1;
+      }
+      else
+      {
+        MM32PIT_Start(PIT1);
+      }
+    }
+    
   }
   return 0;
 }
