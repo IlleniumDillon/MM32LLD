@@ -2,7 +2,7 @@
  * @Author: IlleniumDillon 147900130@qq.com
  * @Date: 2022-11-01 22:23:55
  * @LastEditors: IlleniumDillon 147900130@qq.com
- * @LastEditTime: 2022-12-11 21:25:44
+ * @LastEditTime: 2022-12-12 12:43:15
  * @FilePath: \CODE\Isr\Isr.c
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  */
@@ -219,8 +219,8 @@ void EXTI15_10_IRQHandler (void)
 
 void DMA1_Channel1_IRQHandler(void)
 {
-	uint32_t stat = *(uint32_t*)DMA1_DMA_ISR;
-	DMA1_DMA_IFCR->U = stat;
+	//uint32_t stat = *(uint32_t*)DMA1_DMA_ISR;
+	DMA1_DMA_IFCR->B.CGIF1 = 1;
 	ADC1_DMADone = 1;
 	ADC1_ADCR->B.ADST = 0;
 	DMA1_DMA_CCR1->B.EN = 0;
@@ -228,8 +228,8 @@ void DMA1_Channel1_IRQHandler(void)
 
 void DMA1_Channel2_IRQHandler(void)
 {
-	uint32_t stat = *(uint32_t*)DMA1_DMA_ISR;
-	DMA1_DMA_IFCR->U = stat;
+	//uint32_t stat = *(uint32_t*)DMA1_DMA_ISR;
+	DMA1_DMA_IFCR->B.CGIF2 = 1;
 	ADC2_DMADone = 1;
 	ADC2_ADCR->B.ADST = 0;
 	DMA1_DMA_CCR2->B.EN = 0;
@@ -282,8 +282,8 @@ void DMA2_Channel4_IRQHandler(void)
 
 void DMA2_Channel5_IRQHandler(void)
 {
-	uint32_t stat = *(uint32_t*)DMA1_DMA_ISR;
-	DMA2_DMA_IFCR->U = stat;
+	//uint32_t stat = *(uint32_t*)DMA2_DMA_ISR;
+	DMA2_DMA_IFCR->B.CGIF5 = 1;
 	ADC3_DMADone = 1;
 	ADC3_ADCR->B.ADST = 0;
 	DMA2_DMA_CCR5->B.EN = 0;
