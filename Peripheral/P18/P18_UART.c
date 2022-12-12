@@ -1,9 +1,9 @@
 #include "P18_UART.h"
 
 
-#define P18_UART_NUM    (UART4)
-#define P18_UART_TX     (UART2_TX_A02)
-#define P18_UART_RX     (UART2_RX_A03)
+#define P18_UART_NUM    (UART8)
+#define P18_UART_TX     (UART8_TX_D00)
+#define P18_UART_RX     (UART2_RX_D01)
 #define P18_BAUD    (9600)
 
 uint8_t P18_txBuffer[MAXPACKSIZE] = {0};
@@ -34,7 +34,7 @@ void P18_uartInit(void)
 {
   MM32_UART* m = (MM32_UART*)P18_UART_NUM;
   m->IER.B.RX_IEN = 1;
-  nvic_init(UART4_IRQn, 0x00, 0x00, 1);
+  nvic_init(UART8_IRQn, 0x00, 0x00, 1);
 }
 
 void P18_uartWrite(uint8_t* pack, uint8_t size)

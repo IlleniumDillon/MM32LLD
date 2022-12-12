@@ -2,7 +2,7 @@
  * @Author: IlleniumDillon 147900130@qq.com
  * @Date: 2022-10-31 12:32:55
  * @LastEditors: IlleniumDillon 147900130@qq.com
- * @LastEditTime: 2022-10-31 20:06:41
+ * @LastEditTime: 2022-11-23 20:57:58
  * @FilePath: \CODE\MM32\mLLD\UART\MM32_UART.c
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  */
@@ -10,8 +10,10 @@
 
 void MM32UART_moudleInit(MM32UART_TXPin* txpin, MM32UART_RXPin* rxpin, MM32UART_CTSPin* ctspin, MM32UART_RTSPin* rtspin, uint32_t baud)
 {
+    //UART模块指针
     MM32_UART* moudle = (MM32_UART*)txpin->moudle;
 
+    //使能对应模块
     switch (txpin->moudle)
     {
         case UART1:        MM32RCC_enableUART1();        break;
@@ -25,6 +27,7 @@ void MM32UART_moudleInit(MM32UART_TXPin* txpin, MM32UART_RXPin* rxpin, MM32UART_
         default:        return;
     }
 
+    //配置引脚
     if(txpin!=NULL)
     {
         MM32GPIO_setAFPinConfig(txpin->port,txpin->pin,txpin->conf,txpin->af);
@@ -44,12 +47,16 @@ void MM32UART_moudleInit(MM32UART_TXPin* txpin, MM32UART_RXPin* rxpin, MM32UART_
 
     extern unsigned int SystemCoreClock;
 
+    //使能UART
     moudle->GCR.B.UARTEN = 1;
+    //8位传输
     moudle->CCR.B.CHAR = 3;
     
+    //配置波特率
     moudle->BRR.B.DIV_Mantissa = (SystemCoreClock/baud)/16;
     moudle->FRA.B.DIV_Fraction = (SystemCoreClock/baud)%16;
     
+    //使能RX、TX
     moudle->GCR.B.RXEN = 1;
     moudle->GCR.B.TXEN = 1;
 }
@@ -57,14 +64,18 @@ void MM32UART_moudleInit(MM32UART_TXPin* txpin, MM32UART_RXPin* rxpin, MM32UART_
 void MM32UART_write8(MM32UART_Moudle moudle, uint8_t* pdata)
 {
     MM32_UART* m = (MM32_UART*)moudle;
+    //等待TX缓冲非满
     while(m->CSR.B.TXFULL);
+    //写入数据
     m->TDR.B.TXREG = *pdata;
 }
 
 void MM32UART_read8(MM32UART_Moudle moudle, uint8_t* pdata)
 {
     MM32_UART* m = (MM32_UART*)moudle;
+    //等待有效数据
     while(m->CSR.B.RXAVL!=1);
+    //接收数据
     *pdata = m->RDR.B.RXREG;
 }
 

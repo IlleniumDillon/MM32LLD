@@ -2,7 +2,7 @@
  * @Author: IlleniumDillon 147900130@qq.com
  * @Date: 2022-10-30 13:43:27
  * @LastEditors: IlleniumDillon 147900130@qq.com
- * @LastEditTime: 2022-10-31 20:07:04
+ * @LastEditTime: 2022-12-12 14:59:57
  * @FilePath: \CODE\MM32\Sfr\MM32_DMARegDef.h
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  */
@@ -477,18 +477,6 @@ typedef struct _MM32_DMA
 	unsigned char		_reserved_1;
 	unsigned char		_reserved_2;
 	unsigned char		_reserved_3;
-	unsigned char		_reserved_4;
-	unsigned char		_reserved_5;
-	unsigned char		_reserved_6;
-	unsigned char		_reserved_7;
-	unsigned char		_reserved_8;
-	unsigned char		_reserved_9;
-	unsigned char		_reserved_10;
-	unsigned char		_reserved_11;
-	unsigned char		_reserved_12;
-	unsigned char		_reserved_13;
-	unsigned char		_reserved_14;
-	unsigned char		_reserved_15;
         MM32_DMA_CCR2		CCR2;
         MM32_DMA_CNDTR2		CNDTR2;
         MM32_DMA_CPAR2		CPAR2;
@@ -497,18 +485,6 @@ typedef struct _MM32_DMA
 	unsigned char		_reserved_17;
 	unsigned char		_reserved_18;
 	unsigned char		_reserved_19;
-	unsigned char		_reserved_20;
-	unsigned char		_reserved_21;
-	unsigned char		_reserved_22;
-	unsigned char		_reserved_23;
-	unsigned char		_reserved_24;
-	unsigned char		_reserved_25;
-	unsigned char		_reserved_26;
-	unsigned char		_reserved_27;
-	unsigned char		_reserved_28;
-	unsigned char		_reserved_29;
-	unsigned char		_reserved_30;
-	unsigned char		_reserved_31;
         MM32_DMA_CCR3		CCR3;
         MM32_DMA_CNDTR3		CNDTR3;
         MM32_DMA_CPAR3		CPAR3;
@@ -517,18 +493,6 @@ typedef struct _MM32_DMA
 	unsigned char		_reserved_33;
 	unsigned char		_reserved_34;
 	unsigned char		_reserved_35;
-	unsigned char		_reserved_36;
-	unsigned char		_reserved_37;
-	unsigned char		_reserved_38;
-	unsigned char		_reserved_39;
-	unsigned char		_reserved_40;
-	unsigned char		_reserved_41;
-	unsigned char		_reserved_42;
-	unsigned char		_reserved_43;
-	unsigned char		_reserved_44;
-	unsigned char		_reserved_45;
-	unsigned char		_reserved_46;
-	unsigned char		_reserved_47;
         MM32_DMA_CCR4		CCR4;
         MM32_DMA_CNDTR4		CNDTR4;
         MM32_DMA_CPAR4		CPAR4;
@@ -537,18 +501,6 @@ typedef struct _MM32_DMA
 	unsigned char		_reserved_49;
 	unsigned char		_reserved_50;
 	unsigned char		_reserved_51;
-	unsigned char		_reserved_52;
-	unsigned char		_reserved_53;
-	unsigned char		_reserved_54;
-	unsigned char		_reserved_55;
-	unsigned char		_reserved_56;
-	unsigned char		_reserved_57;
-	unsigned char		_reserved_58;
-	unsigned char		_reserved_59;
-	unsigned char		_reserved_60;
-	unsigned char		_reserved_61;
-	unsigned char		_reserved_62;
-	unsigned char		_reserved_63;
         MM32_DMA_CCR5		CCR5;
         MM32_DMA_CNDTR5		CNDTR5;
         MM32_DMA_CPAR5		CPAR5;
@@ -557,18 +509,6 @@ typedef struct _MM32_DMA
 	unsigned char		_reserved_65;
 	unsigned char		_reserved_66;
 	unsigned char		_reserved_67;
-	unsigned char		_reserved_68;
-	unsigned char		_reserved_69;
-	unsigned char		_reserved_70;
-	unsigned char		_reserved_71;
-	unsigned char		_reserved_72;
-	unsigned char		_reserved_73;
-	unsigned char		_reserved_74;
-	unsigned char		_reserved_75;
-	unsigned char		_reserved_76;
-	unsigned char		_reserved_77;
-	unsigned char		_reserved_78;
-	unsigned char		_reserved_79;
         MM32_DMA_CCR6		CCR6;
         MM32_DMA_CNDTR6		CNDTR6;
         MM32_DMA_CPAR6		CPAR6;
@@ -577,18 +517,6 @@ typedef struct _MM32_DMA
 	unsigned char		_reserved_81;
 	unsigned char		_reserved_82;
 	unsigned char		_reserved_83;
-	unsigned char		_reserved_84;
-	unsigned char		_reserved_85;
-	unsigned char		_reserved_86;
-	unsigned char		_reserved_87;
-	unsigned char		_reserved_88;
-	unsigned char		_reserved_89;
-	unsigned char		_reserved_90;
-	unsigned char		_reserved_91;
-	unsigned char		_reserved_92;
-	unsigned char		_reserved_93;
-	unsigned char		_reserved_94;
-	unsigned char		_reserved_95;
         MM32_DMA_CCR7		CCR7;
         MM32_DMA_CNDTR7		CNDTR7;
         MM32_DMA_CPAR7		CPAR7;

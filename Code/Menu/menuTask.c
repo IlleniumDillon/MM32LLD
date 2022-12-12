@@ -2,7 +2,7 @@
  * @Author: IlleniumDillon 147900130@qq.com
  * @Date: 2022-11-10 15:58:38
  * @LastEditors: IlleniumDillon 147900130@qq.com
- * @LastEditTime: 2022-11-15 16:05:30
+ * @LastEditTime: 2022-11-23 13:00:47
  * @FilePath: \CODE\Code\Menu\menuTask.c
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  */
@@ -51,6 +51,7 @@ void menu_loopSet(void)
     P18_loop_t flag = OPENLOOP;
     while(1)
     {
+        Menu_getPinState();
         if(keyPressFlag & KEYPRESS_OK)
         {
             while(P18_device.loopStatus[CHANNEL0]!=flag)
@@ -114,6 +115,7 @@ void menu_ADSet(void)
     P18_ADstatus_t flag = ANALOG;
     while(1)
     {
+        Menu_getPinState();
         if(keyPressFlag & KEYPRESS_OK)
         {
             while(P18_device.ADStatus[CHANNEL0]!=flag)
@@ -179,6 +181,7 @@ void menu_baudSet(void)
     
     while(1)
     {
+        Menu_getPinState();
         if(keyPressFlag & KEYPRESS_OK)
         {
             P18_setBaud(baudEnumList[indx]);
@@ -249,6 +252,7 @@ void menu_FBtimeSet(void)
     oled_refresh = 1;
     while(1)
     {
+        Menu_getPinState();
         if(keyPressFlag & KEYPRESS_OK)
         {
             break;
@@ -346,6 +350,7 @@ void _paraSet(char* name, float* para)
     oled_refresh = 1;
     while(1)
     {
+        Menu_getPinState();
         if(keyPressFlag & KEYPRESS_OK)
         {
             OLED_clearBuf();
@@ -415,6 +420,7 @@ void menu_CH1Set(void)
     oled_refresh = 1;
     while(1)
     {
+        Menu_getPinState();
         if(keyPressFlag & KEYPRESS_OK)
         {
             keyPressFlag = 0;
@@ -496,7 +502,7 @@ void menu_CH2Set(void)
     OLED_clearBuf();
     oled_refresh = 1;
     OLED_clearBuf();
-    OLED_printf(0,0,">>./CH1 Set");
+    OLED_printf(0,0,">>./CH2 Set");
     //OLED_printf(6,3,"[step]:%d   ",step);
     OLED_printf(0,4,">");
     OLED_printf(6,4,"P:%f   ",P18_device.P[1]);
@@ -505,6 +511,7 @@ void menu_CH2Set(void)
     oled_refresh = 1;
     while(1)
     {
+        Menu_getPinState();
         if(keyPressFlag & KEYPRESS_OK)
         {
             keyPressFlag = 0;
@@ -530,7 +537,7 @@ void menu_CH2Set(void)
             }
             flag = 0;
             keyPressFlag = 0;
-            OLED_printf(0,0,">>./CH1 Set");
+            OLED_printf(0,0,">>./CH2 Set");
             OLED_printf(0,4,">");
             OLED_printf(6,4,"P:%f   ",P18_device.P[1]);
             OLED_printf(6,5,"I:%f   ",P18_device.I[1]);
@@ -541,7 +548,7 @@ void menu_CH2Set(void)
         {
             keyPressFlag = 0;
             OLED_clearBuf();
-            OLED_printf(0,0,">>./CH1 Set");
+            OLED_printf(0,0,">>./CH2 Set");
             OLED_printf(6,4,"P:%f   ",P18_device.P[1]);
             OLED_printf(6,5,"I:%f   ",P18_device.I[1]);
             OLED_printf(6,6,"D:%f   ",P18_device.D[1]);
@@ -559,7 +566,7 @@ void menu_CH2Set(void)
         {
             keyPressFlag = 0;
             OLED_clearBuf();
-            OLED_printf(0,0,">>./CH1 Set");
+            OLED_printf(0,0,">>./CH2 Set");
             OLED_printf(6,4,"P:%f   ",P18_device.P[1]);
             OLED_printf(6,5,"I:%f   ",P18_device.I[1]);
             OLED_printf(6,6,"D:%f   ",P18_device.D[1]);
@@ -595,6 +602,7 @@ void menu_waveDef(void)
     oled_refresh = 1;
     while(1)
     {
+        Menu_getPinState();
         if(keyPressFlag & KEYPRESS_OK)
         {
             keyPressFlag = 0;

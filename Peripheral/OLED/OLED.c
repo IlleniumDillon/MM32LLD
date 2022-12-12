@@ -2,7 +2,7 @@
  * @Author: IlleniumDillon 147900130@qq.com
  * @Date: 2022-11-01 20:39:57
  * @LastEditors: IlleniumDillon 147900130@qq.com
- * @LastEditTime: 2022-11-07 10:11:04
+ * @LastEditTime: 2022-11-23 21:24:59
  * @FilePath: \CODE\Peripheral\OLED\OLED.c
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  */
@@ -13,6 +13,7 @@ MM32SPI_Pin_SCLK SCLK = {.port = GPIOD, .pin = P12, .conf = AF_PUSHPULL, .af = A
 MM32SPI_Pin_MOSI MOSI = {.port = GPIOD, .pin = P14, .conf = AF_PUSHPULL, .af = AF6, .moudle = SPI3};
 MM32SPI_Pin_MOSI MISO = {.port = GPIOD, .pin = P13, .conf = INPUT_FLOATING, .af = AF6, .moudle = SPI3};*/
 
+//OLED引脚定义
 MM32GPIO_GPIO_Pin RES = {.port = GPIOD, .pin = P10, .conf = OUTPUT_PUSHPULL};
 MM32GPIO_GPIO_Pin DC = {.port = GPIOD, .pin = P11, .conf = OUTPUT_PUSHPULL};
 
@@ -21,20 +22,27 @@ MM32GPIO_GPIO_Pin SCLK = {.port = GPIOD, .pin = P12, .conf = OUTPUT_PUSHPULL};
 MM32GPIO_GPIO_Pin MOSI = {.port = GPIOD, .pin = P14, .conf = OUTPUT_PUSHPULL};
 MM32GPIO_GPIO_Pin MISO = {.port = GPIOD, .pin = P13, .conf = INPUT_FLOATING};
 
+//软件SPI设备
 swspi_dev oled;
 
+//显存脏数组
 uint8_t oled_buffer[2][1024] = {0};
+//当前生效显存
 uint8_t oled_bufferIndx = 0;
+//需要更新标记
 uint8_t oled_refresh = 0;
 
 void OLED_init(void)
 {
+    //初始化引脚
     MM32GPIO_setPinConfig(RES.port,RES.pin,RES.conf);
     MM32GPIO_setPinConfig(DC.port,DC.pin,DC.conf);
     //MM32SPI_moudleInit(&SCLK,&MOSI,NULL,&CS,1000000,MODE2);
     oled = SWSPIInit(MISO,MOSI,SCLK,CS,10000000,2);
+    //配置刷新任务
     MM32PIT_timerTaskInit(PIT2,50,20);
-    
+
+    //OLED初始化
     MM32GPIO_setPinHigh(RES.port,RES.pin);
     uint8_t i = 50;while(i--);
     MM32GPIO_setPinLow(RES.port,RES.pin);

@@ -2,20 +2,27 @@
  * @Author: IlleniumDillon 147900130@qq.com
  * @Date: 2022-11-01 21:33:38
  * @LastEditors: IlleniumDillon 147900130@qq.com
- * @LastEditTime: 2022-11-18 10:29:59
+ * @LastEditTime: 2022-11-30 21:15:46
  * @FilePath: \CODE\Peripheral\P18\P18_CTRL.c
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  */
 #include "P18_CTRL.h"
 
+//控制结构体
 PIDCFG_T P18_X = {0};
 PIDCFG_T P18_Y = {0};
 PIDCFG_T P18_Z = {0};
 
-float target_X = 20;
+//三通道目标值
+float target_X = 0;
 float target_Y = 0;
 float target_Z = 0;
 
+//反馈更新标记
+uint8_t transeFlag = 1;
+
+/// @brief 反馈及目标值更新
+/// @param  
 void P18_ctrlStateUpdate(void)
 {
   P18_X.target = target_X;
@@ -26,6 +33,10 @@ void P18_ctrlStateUpdate(void)
   P18_Z.current = P18_device.shift[2];
 }
 
+/// @brief 一次控制
+/// @param pid 控制结构体
+/// @param ch 通道号
+/// @return 
 float P18_ctrlCtrlUpdate(PIDCFG_T* pid,uint8_t ch)
 {
   pid->kp = P18_device.P[ch];
@@ -33,14 +44,18 @@ float P18_ctrlCtrlUpdate(PIDCFG_T* pid,uint8_t ch)
   pid->kd = P18_device.D[ch];
   pid->T = 1;
   pid->error = pid->target - pid->current;
-  pid->output = pid->kp * pid->error + pid->kd * ((pid->error - pid->error_1) / pid->T);
+  
+  //pid->output = pid->kp * pid->error + pid->kd * ((pid->error - pid->error_1) / pid->T);
+
+  pid->output = pid->output + pid->kp * (pid->error - pid->error_1) + pid->ki * pid->T * pid->error;
+
   pid->error_2 = pid->error_1;
   pid->error_1 = pid->error;
   
   if(pid->output < 0) pid->output = 0;
-  if(pid->output > 250)pid->output = 250;
+  if(pid->output > 9.9)pid->output = 9.9;
   
-  return pid->output / 200 * 90;
+  return pid->output;
 }
 
 void P18_devCheck(void)
@@ -91,13 +106,38 @@ void P18_ctrlCallBack(void)
 
 void P18_ctrlAnalogCallBack(void)
 {
-  P18_X.current = P18_getShiftFromADC(CHANNEL0);
-  P18_Y.current = P18_getShiftFromADC(CHANNEL1);
+  /*static int i = 0;
+  i++;
+  if(i == 8001) i = 0;
+  if(i<4000)
+  {
+    target_X = 1;
+    target_Y = 1;
+  }
+  else
+  {
+    target_X = 5;
+    target_Y = 5;
+  }*/
+  
+  P18_X.current = P18_getVoltageFromADC(CHANNEL0);
+  P18_Y.current = P18_getVoltageFromADC(CHANNEL1);
   P18_X.target = target_X;
   P18_Y.target = target_Y;
 
   float voltage1 = P18_ctrlCtrlUpdate(&P18_X, CHANNEL0);
   float voltage2 = P18_ctrlCtrlUpdate(&P18_Y, CHANNEL1);
-
+  /*voltage1 = target_X;
+  voltage2 = target_Y;*/
+  transeFlag = 1;
   P18_setVoltageToDAC(voltage1, voltage2);
+
+  /*P18_X.current = P18_getShiftFromADC(CHANNEL0);
+  P18_Y.current = P18_getShiftFromADC(CHANNEL1);
+  static uint16_t i = 0;
+  static int8_t sign = 10;
+  if(i==4090)sign = -10;
+  if(i==0)sign = 10;
+  MM32DAC_set2ChannelData12(i,i);
+  i += sign;*/
 }

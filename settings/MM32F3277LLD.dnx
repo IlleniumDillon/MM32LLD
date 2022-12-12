@@ -45,17 +45,17 @@
         <JetConnSerialNo>SEEKFREE CMSIS-DAP V2:0</JetConnSerialNo>
         <JetConnFoundProbes />
         <PrevWtdReset>Hardware</PrevWtdReset>
-        <OnlineReset>Software</OnlineReset>
         <DisableInterrupts>0</DisableInterrupts>
         <LeaveRunning>0</LeaveRunning>
         <MultiCoreRunAll>0</MultiCoreRunAll>
+        <OnlineReset>Software</OnlineReset>
     </Jet>
     <PlDriver>
         <FirstRun>0</FirstRun>
         <MemConfigValue>E:\Program Files\IAR Systems\Embedded Workbench 8.2\arm\CONFIG\debugger\MindMotion\MM32F3270.ddf</MemConfigValue>
     </PlDriver>
     <DebugChecksum>
-        <Checksum>2900175128</Checksum>
+        <Checksum>2186906585</Checksum>
     </DebugChecksum>
     <Exceptions>
         <StopOnUncaught>_ 0</StopOnUncaught>
@@ -83,6 +83,15 @@
     <ArmDriver>
         <EnableCache>1</EnableCache>
     </ArmDriver>
+    <struct_types>
+        <Fmt0>MM32_DMA_CMAR1Bits-MA	4	0</Fmt0>
+        <Fmt1>MM32_DMA_CMAR2Bits-MA	4	0</Fmt1>
+        <Fmt2>MM32_DMA_CPAR1Bits-PA	4	0</Fmt2>
+        <Fmt3>MM32_DMA_CPAR2Bits-PA	4	0</Fmt3>
+    </struct_types>
+    <array_types>
+        <Fmt0>uint32_t[10]	4	0</Fmt0>
+    </array_types>
     <watch_formats>
         <Fmt0>{W}1:flags	4	0</Fmt0>
     </watch_formats>
@@ -116,15 +125,6 @@
         <EventLSU>0</EventLSU>
         <EventSLEEP>0</EventSLEEP>
     </SWOTraceWindow>
-    <TermIOLog>
-        <LoggingEnabled>_ 0</LoggingEnabled>
-        <LogFile>_ ""</LogFile>
-    </TermIOLog>
-    <LogFile>
-        <LoggingEnabled>_ 0</LoggingEnabled>
-        <LogFile>_ ""</LogFile>
-        <Category>_ 0</Category>
-    </LogFile>
     <DisassembleMode>
         <mode>0</mode>
     </DisassembleMode>
@@ -137,6 +137,15 @@
         <Bp5>_ 1 "EMUL_CODE" "{$PROJ_DIR$\main.c}.48.5" 0 0 1 "" 0 "" 0</Bp5>
         <Count>6</Count>
     </Breakpoints2>
+    <TermIOLog>
+        <LoggingEnabled>_ 0</LoggingEnabled>
+        <LogFile>_ ""</LogFile>
+    </TermIOLog>
+    <LogFile>
+        <LoggingEnabled>_ 0</LoggingEnabled>
+        <LogFile>_ ""</LogFile>
+        <Category>_ 0</Category>
+    </LogFile>
     <Aliases>
         <Count>0</Count>
         <SuppressDialog>0</SuppressDialog>

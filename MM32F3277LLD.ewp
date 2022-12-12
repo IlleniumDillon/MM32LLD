@@ -2202,6 +2202,12 @@
                 <file>
                     <name>$PROJ_DIR$\MM32\mLLD\ADC\MM32_ADC.h</name>
                 </file>
+                <file>
+                    <name>$PROJ_DIR$\MM32\mLLD\ADC\MM32_ADCDMA.c</name>
+                </file>
+                <file>
+                    <name>$PROJ_DIR$\MM32\mLLD\ADC\MM32_ADCDMA.h</name>
+                </file>
             </group>
             <group>
                 <name>DAC</name>
@@ -2315,6 +2321,18 @@
                 <name>$PROJ_DIR$\MM32\Sfr\MM32_ADCRegDef.h</name>
             </file>
             <file>
+                <name>$PROJ_DIR$\MM32\Sfr\MM32_COMPReg.h</name>
+            </file>
+            <file>
+                <name>$PROJ_DIR$\MM32\Sfr\MM32_COMPRegDef.h</name>
+            </file>
+            <file>
+                <name>$PROJ_DIR$\MM32\Sfr\MM32_CRCReg.h</name>
+            </file>
+            <file>
+                <name>$PROJ_DIR$\MM32\Sfr\MM32_CRCRegDef.h</name>
+            </file>
+            <file>
                 <name>$PROJ_DIR$\MM32\Sfr\MM32_CRSReg.h</name>
             </file>
             <file>
@@ -2345,10 +2363,22 @@
                 <name>$PROJ_DIR$\MM32\Sfr\MM32_FLASHRegDef.h</name>
             </file>
             <file>
+                <name>$PROJ_DIR$\MM32\Sfr\MM32_FSMCReg.h</name>
+            </file>
+            <file>
+                <name>$PROJ_DIR$\MM32\Sfr\MM32_FSMCRegDef.h</name>
+            </file>
+            <file>
                 <name>$PROJ_DIR$\MM32\Sfr\MM32_GPIOReg.h</name>
             </file>
             <file>
                 <name>$PROJ_DIR$\MM32\Sfr\MM32_GPIORegDef.h</name>
+            </file>
+            <file>
+                <name>$PROJ_DIR$\MM32\Sfr\MM32_I2CReg.h</name>
+            </file>
+            <file>
+                <name>$PROJ_DIR$\MM32\Sfr\MM32_I2CRegDef.h</name>
             </file>
             <file>
                 <name>$PROJ_DIR$\MM32\Sfr\MM32_IWDGReg.h</name>
@@ -2433,6 +2463,12 @@
             </file>
             <file>
                 <name>$PROJ_DIR$\MM32\Sfr\MM32_UARTRegDef.h</name>
+            </file>
+            <file>
+                <name>$PROJ_DIR$\MM32\Sfr\MM32_USBReg.h</name>
+            </file>
+            <file>
+                <name>$PROJ_DIR$\MM32\Sfr\MM32_USBRegDef.h</name>
             </file>
             <file>
                 <name>$PROJ_DIR$\MM32\Sfr\MM32_WWDGReg.h</name>
