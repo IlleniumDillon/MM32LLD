@@ -2567,6 +2567,15 @@
                         <name>$PROJ_DIR$\MM32\mLLD\TIM\PIT\MM32_PIT.h</name>
                     </file>
                 </group>
+                <group>
+                    <name>PWM</name>
+                    <file>
+                        <name>$PROJ_DIR$\MM32\mLLD\TIM\PWM\MM32_PWM.c</name>
+                    </file>
+                    <file>
+                        <name>$PROJ_DIR$\MM32\mLLD\TIM\PWM\MM32_PWM.h</name>
+                    </file>
+                </group>
                 <file>
                     <name>$PROJ_DIR$\MM32\mLLD\TIM\MM32_TIM.c</name>
                 </file>
