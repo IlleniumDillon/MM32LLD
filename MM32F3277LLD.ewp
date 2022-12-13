@@ -2277,6 +2277,12 @@
                 <file>
                     <name>$PROJ_DIR$\MM32\mLLD\SPI\MM32_SPI.h</name>
                 </file>
+                <file>
+                    <name>$PROJ_DIR$\MM32\mLLD\SPI\MM32_SPIDMA.c</name>
+                </file>
+                <file>
+                    <name>$PROJ_DIR$\MM32\mLLD\SPI\MM32_SPIDMA.h</name>
+                </file>
             </group>
             <group>
                 <name>TIM</name>
