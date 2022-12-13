@@ -2,7 +2,7 @@
  * @Author: IlleniumDillon 147900130@qq.com
  * @Date: 2022-12-12 21:33:58
  * @LastEditors: IlleniumDillon 147900130@qq.com
- * @LastEditTime: 2022-12-13 12:00:28
+ * @LastEditTime: 2022-12-13 15:36:27
  * @FilePath: \CODE\MM32\mLLD\SPI\MM32_SPIDMA.h
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  */
@@ -40,7 +40,7 @@ void MM32SPIDMA_moudleInit(MM32SPI_Pin_SCLK* sclk, MM32SPI_Pin_MOSI* mosi, MM32S
  * @param {uint16_t} txSize  发送字节数
  * @param {uint16_t} rxSize   接收字节数
  * @return {*}
- * @note 如果指针传入NULL，使用默认的Buffer
+ * @todo 如果指针传入NULL，使用默认的Buffer
  * @todo 要检查传输完毕才能退出函数，避免访问释放掉的内存空间
  * @example
  * \code

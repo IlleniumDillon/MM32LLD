@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project>
     <fileVersion>4</fileVersion>
-    <fileChecksum>3583200166</fileChecksum>
+    <fileChecksum>766542514</fileChecksum>
     <configuration>
         <name>Debug</name>
         <outputs>
@@ -365,6 +365,10 @@
             <file>$PROJ_DIR$\Peripheral\SWSDIO\SWSDIO.c</file>
             <file>$PROJ_DIR$\Peripheral\OLED\OLED_Font.h</file>
             <file>$PROJ_DIR$\Peripheral\SWSDIO\SWSDIO.h</file>
+            <file>$PROJ_DIR$\MM32\mLLD\UART\MM32_UARTDMA.c</file>
+            <file>$PROJ_DIR$\Debug\Obj\MM32_UARTDMA.pbi</file>
+            <file>$PROJ_DIR$\MM32\mLLD\UART\MM32_UARTDMA.h</file>
+            <file>$PROJ_DIR$\Debug\Obj\MM32_UARTDMA.o</file>
         </outputs>
         <file>
             <name>[ROOT_NODE]</name>
@@ -859,7 +863,7 @@
             <inputs>
                 <tool>
                     <name>ILINK</name>
-                    <file> 132 96 156 209 178 101 172 129 79 180 186 42 65 181 146 203 229 93 200 173 117 202 126 169 71 142 193 198 80 77 128 107 104 122 135 159 144 155</file>
+                    <file> 132 96 156 209 178 101 172 129 79 180 186 42 65 181 146 203 229 93 200 173 117 363 202 126 169 71 142 193 198 80 77 128 107 104 122 135 159 144 155</file>
                 </tool>
             </inputs>
         </file>
@@ -1496,11 +1500,11 @@
             <inputs>
                 <tool>
                     <name>ICCARM</name>
-                    <file> 8 276 296 292 271 111 212 124 72 213 228 197 39 244 280 282 258 333 343 114 240 266 267 254 257 325 243 247 290 283 35 279 277 182 315 341 358 263 253 339 346 275 347 245 9 5 56 55 330 304 356 344 351 345 349 24 235 234 27 255 250 359 211 221 22 29 260 237 285 268 18 256</file>
+                    <file> 8 276 296 292 271 111 212 124 72 213 228 197 39 244 280 282 258 333 343 114 240 266 267 254 257 325 243 247 290 283 35 279 277 182 315 341 358 263 253 339 346 275 347 245 9 5 56 55 330 304 356 344 351 345 349 24 235 234 27 255 250 359 211 221 22 29 260 237 285 268 18 256 362</file>
                 </tool>
                 <tool>
                     <name>BICOMP</name>
-                    <file> 271 255 8 346 296 359 212 72 282 254 277 111 35 27 343 258 257 124 351 245 240 304 263 256 276 114 244 267 182 315 253 344 18 356 243 341 211 22 24 292 197 213 228 39 280 333 266 325 247 9 345 235 234 250 260 290 283 279 204 358 330 339 275 347 5 56 55 349 221 29 285 237 268</file>
+                    <file> 279 276 339 271 55 359 114 267 290 330 8 35 27 296 111 124 244 204 304 24 356 245 240 263 256 212 72 282 343 258 254 5 197 285 268 243 341 211 22 362 292 213 228 39 280 333 266 325 283 358 275 347 56 349 351 182 221 29 237 257 247 277 315 253 346 9 344 345 235 234 255 250 18 260</file>
                 </tool>
             </inputs>
         </file>
@@ -1798,6 +1802,29 @@
                 <tool>
                     <name>BICOMP</name>
                     <file> 228 124 212 8 330 244 292 197 213 39 280 296 276 271 111 72 282 359</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\MM32\mLLD\UART\MM32_UARTDMA.c</name>
+            <outputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 363</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 361</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 362 258 333 296 343 271 111 212 124 72 213 228 197 39 8 276 292 244 280 282 114 254 257 245 9 5 56 55</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 197 213 39 258 245 276 8 343 296 271 114 124 228 212 282 9 254 333 244 111 72 292 280 257 5 55 362 56</file>
                 </tool>
             </inputs>
         </file>

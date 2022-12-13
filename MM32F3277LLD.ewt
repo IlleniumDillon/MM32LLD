@@ -2582,6 +2582,12 @@
                 <file>
                     <name>$PROJ_DIR$\MM32\mLLD\UART\MM32_UART.h</name>
                 </file>
+                <file>
+                    <name>$PROJ_DIR$\MM32\mLLD\UART\MM32_UARTDMA.c</name>
+                </file>
+                <file>
+                    <name>$PROJ_DIR$\MM32\mLLD\UART\MM32_UARTDMA.h</name>
+                </file>
             </group>
             <file>
                 <name>$PROJ_DIR$\MM32\mLLD\common.c</name>
