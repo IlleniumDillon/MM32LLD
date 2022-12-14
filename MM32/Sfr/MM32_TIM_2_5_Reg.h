@@ -1,0 +1,96 @@
+/*
+ * @Author: IlleniumDillon 147900130@qq.com
+ * @Date: 2022-11-02 20:58:48
+ * @LastEditors: IlleniumDillon 147900130@qq.com
+ * @LastEditTime: 2022-12-14 10:29:38
+ * @FilePath: \CODE\MM32\Sfr\MM32_TIM_2_5_Reg.h
+ * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
+ */
+#ifndef _MM32_TIM_2_5_REG_H_
+#define _MM32_TIM_2_5_REG_H_
+
+#include "MM32_RegBase.h"
+
+#include "MM32_TIM_2_5_RegDef.h"
+
+#define MOUDLE_TIM2		((MM32_TIM_2_5*)TIM2_BASE)
+
+#define MOUDLE_TIM5		((MM32_TIM_2_5*)TIM5_BASE)
+
+#define TIM2_CR1		((MM32_TIM_2_5_CR1*)(TIM2_BASE+0X00))
+
+#define TIM2_CR2		((MM32_TIM_2_5_CR2*)(TIM2_BASE+0X04))
+
+#define TIM2_SMCR		((MM32_TIM_2_5_SMCR*)(TIM2_BASE+0X08))
+
+#define TIM2_DIER		((MM32_TIM_2_5_DIER*)(TIM2_BASE+0X0C))
+
+#define TIM2_SR		((MM32_TIM_2_5_SR*)(TIM2_BASE+0X10))
+
+#define TIM2_EGR		((MM32_TIM_2_5_EGR*)(TIM2_BASE+0X14))
+
+#define TIM2_CCMR1		((MM32_TIM_2_5_CCMR1*)(TIM2_BASE+0X18))
+
+#define TIM2_CCMR2		((MM32_TIM_2_5_CCMR2*)(TIM2_BASE+0X1C))
+
+#define TIM2_CCER		((MM32_TIM_2_5_CCER*)(TIM2_BASE+0X20))
+
+#define TIM2_CNT		((MM32_TIM_2_5_CNT*)(TIM2_BASE+0X24))
+
+#define TIM2_PSC		((MM32_TIM_2_5_PSC*)(TIM2_BASE+0X28))
+
+#define TIM2_ARR		((MM32_TIM_2_5_ARR*)(TIM2_BASE+0X2C))
+
+#define TIM2_CCR1		((MM32_TIM_2_5_CCR1*)(TIM2_BASE+0X34))
+
+#define TIM2_CCR2		((MM32_TIM_2_5_CCR2*)(TIM2_BASE+0X38))
+
+#define TIM2_CCR3		((MM32_TIM_2_5_CCR3*)(TIM2_BASE+0X3C))
+
+#define TIM2_CCR4		((MM32_TIM_2_5_CCR4*)(TIM2_BASE+0X40))
+
+#define TIM2_DCR		((MM32_TIM_2_5_DCR*)(TIM2_BASE+0X48))
+
+#define TIM2_DMAR		((MM32_TIM_2_5_DMAR*)(TIM2_BASE+0X4C))
+
+#define TIM2_OR		((MM32_TIM_2_5_OR*)(TIM2_BASE+0X50))
+
+#define TIM5_CR1		((MM32_TIM_2_5_CR1*)(TIM5_BASE+0X00))
+
+#define TIM5_CR2		((MM32_TIM_2_5_CR2*)(TIM5_BASE+0X04))
+
+#define TIM5_SMCR		((MM32_TIM_2_5_SMCR*)(TIM5_BASE+0X08))
+
+#define TIM5_DIER		((MM32_TIM_2_5_DIER*)(TIM5_BASE+0X0C))
+
+#define TIM5_SR		((MM32_TIM_2_5_SR*)(TIM5_BASE+0X10))
+
+#define TIM5_EGR		((MM32_TIM_2_5_EGR*)(TIM5_BASE+0X14))
+
+#define TIM5_CCMR1		((MM32_TIM_2_5_CCMR1*)(TIM5_BASE+0X18))
+
+#define TIM5_CCMR2		((MM32_TIM_2_5_CCMR2*)(TIM5_BASE+0X1C))
+
+#define TIM5_CCER		((MM32_TIM_2_5_CCER*)(TIM5_BASE+0X20))
+
+#define TIM5_CNT		((MM32_TIM_2_5_CNT*)(TIM5_BASE+0X24))
+
+#define TIM5_PSC		((MM32_TIM_2_5_PSC*)(TIM5_BASE+0X28))
+
+#define TIM5_ARR		((MM32_TIM_2_5_ARR*)(TIM5_BASE+0X2C))
+
+#define TIM5_CCR1		((MM32_TIM_2_5_CCR1*)(TIM5_BASE+0X34))
+
+#define TIM5_CCR2		((MM32_TIM_2_5_CCR2*)(TIM5_BASE+0X38))
+
+#define TIM5_CCR3		((MM32_TIM_2_5_CCR3*)(TIM5_BASE+0X3C))
+
+#define TIM5_CCR4		((MM32_TIM_2_5_CCR4*)(TIM5_BASE+0X40))
+
+#define TIM5_DCR		((MM32_TIM_2_5_DCR*)(TIM5_BASE+0X48))
+
+#define TIM5_DMAR		((MM32_TIM_2_5_DMAR*)(TIM5_BASE+0X4C))
+
+#define TIM5_OR		((MM32_TIM_2_5_OR*)(TIM5_BASE+0X50))
+
+#endif
