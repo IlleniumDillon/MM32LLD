@@ -376,8 +376,6 @@
                     <state>$PROJ_DIR$\Peripheral\HOST</state>
                     <state>$PROJ_DIR$\MM32\mLLD\DAC</state>
                     <state>$PROJ_DIR$\MM32\mLLD\ADC</state>
-                    <state>$PROJ_DIR$\MM32\mLLD\TIM\PWM</state>
-                    <state>$PROJ_DIR$\MM32\mLLD\TIM\CCU</state>
                 </option>
                 <option>
                     <name>CCStdIncCheck</name>
@@ -2279,24 +2277,9 @@
                 <file>
                     <name>$PROJ_DIR$\MM32\mLLD\SPI\MM32_SPI.h</name>
                 </file>
-                <file>
-                    <name>$PROJ_DIR$\MM32\mLLD\SPI\MM32_SPIDMA.c</name>
-                </file>
-                <file>
-                    <name>$PROJ_DIR$\MM32\mLLD\SPI\MM32_SPIDMA.h</name>
-                </file>
             </group>
             <group>
                 <name>TIM</name>
-                <group>
-                    <name>CCU</name>
-                    <file>
-                        <name>$PROJ_DIR$\MM32\mLLD\TIM\CCU\MM32_CCU.c</name>
-                    </file>
-                    <file>
-                        <name>$PROJ_DIR$\MM32\mLLD\TIM\CCU\MM32_CCU.h</name>
-                    </file>
-                </group>
                 <group>
                     <name>PIT</name>
                     <file>
@@ -2304,15 +2287,6 @@
                     </file>
                     <file>
                         <name>$PROJ_DIR$\MM32\mLLD\TIM\PIT\MM32_PIT.h</name>
-                    </file>
-                </group>
-                <group>
-                    <name>PWM</name>
-                    <file>
-                        <name>$PROJ_DIR$\MM32\mLLD\TIM\PWM\MM32_PWM.c</name>
-                    </file>
-                    <file>
-                        <name>$PROJ_DIR$\MM32\mLLD\TIM\PWM\MM32_PWM.h</name>
                     </file>
                 </group>
                 <file>
@@ -2329,12 +2303,6 @@
                 </file>
                 <file>
                     <name>$PROJ_DIR$\MM32\mLLD\UART\MM32_UART.h</name>
-                </file>
-                <file>
-                    <name>$PROJ_DIR$\MM32\mLLD\UART\MM32_UARTDMA.c</name>
-                </file>
-                <file>
-                    <name>$PROJ_DIR$\MM32\mLLD\UART\MM32_UARTDMA.h</name>
                 </file>
             </group>
             <file>

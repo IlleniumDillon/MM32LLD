@@ -2,7 +2,7 @@
  * @Author: IlleniumDillon 147900130@qq.com
  * @Date: 2022-10-31 19:06:47
  * @LastEditors: IlleniumDillon 147900130@qq.com
- * @LastEditTime: 2022-12-13 12:20:27
+ * @LastEditTime: 2022-11-23 16:55:14
  * @FilePath: \CODE\MM32\mLLD\SPI\MM32_SPI.c
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  */
@@ -29,15 +29,15 @@ void MM32SPI_moudleInit(MM32SPI_Pin_SCLK* sclk, MM32SPI_Pin_MOSI* mosi, MM32SPI_
     }
     if(mosi!=NULL)
     {
-        MM32GPIO_setAFPinConfig(mosi->port,mosi->pin,mosi->conf,mosi->af);
+        MM32GPIO_setAFPinConfig(sclk->port,sclk->pin,sclk->conf,sclk->af);
     }
     if(miso!=NULL)
     {
-        MM32GPIO_setAFPinConfig(miso->port,miso->pin,miso->conf,miso->af);
+        MM32GPIO_setAFPinConfig(sclk->port,sclk->pin,sclk->conf,sclk->af);
     }
     if(cs!=NULL)
     {
-        MM32GPIO_setAFPinConfig(cs->port,cs->pin,cs->conf,cs->af);
+        MM32GPIO_setAFPinConfig(sclk->port,sclk->pin,sclk->conf,sclk->af);
     }
 
     extern unsigned int SystemCoreClock;
@@ -50,8 +50,8 @@ void MM32SPI_moudleInit(MM32SPI_Pin_SCLK* sclk, MM32SPI_Pin_MOSI* mosi, MM32SPI_
     moudle->CCTL.B.SPILEN = 1;
     moudle->CCTL.B.LSBFE = 0;
 
-    //moudle->CCTL.B.RXEDGE = 1;
-    //moudle->CCTL.B.TXEDGE = 1;
+    moudle->CCTL.B.RXEDGE = 1;
+    moudle->CCTL.B.TXEDGE = 1;
     //设置为主机
     moudle->GCTL.B.MODE = 1;
     //硬件片选
