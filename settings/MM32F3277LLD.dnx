@@ -55,7 +55,7 @@
         <MemConfigValue>E:\Program Files\IAR Systems\Embedded Workbench 8.2\arm\CONFIG\debugger\MindMotion\MM32F3270.ddf</MemConfigValue>
     </PlDriver>
     <DebugChecksum>
-        <Checksum>4155344530</Checksum>
+        <Checksum>1791147950</Checksum>
     </DebugChecksum>
     <Exceptions>
         <StopOnUncaught>_ 0</StopOnUncaught>
@@ -124,7 +124,7 @@
         <Bp1>_ 0 "EMUL_CODE" "0x08002238" 0 0 1 "" 0 "" 0</Bp1>
         <Bp2>_ 0 "EMUL_CODE" "{$PROJ_DIR$\Peripheral\SWSDIO\SWSDIO.c}.119.11" 0 0 1 "" 0 "" 0</Bp2>
         <Bp3>_ 0 "EMUL_CODE" "{$PROJ_DIR$\Peripheral\SWSDIO\SWSDIO.c}.135.11" 0 0 1 "" 0 "" 0</Bp3>
-        <Bp4>_ 1 "EMUL_CODE" "{$PROJ_DIR$\main.c}.46.3" 0 0 1 "" 0 "" 0</Bp4>
+        <Bp4>_ 1 "EMUL_CODE" "{$PROJ_DIR$\main.c}.66.5" 0 0 1 "" 0 "" 0</Bp4>
         <Count>5</Count>
     </Breakpoints2>
     <TermIOLog>

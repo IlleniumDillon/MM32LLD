@@ -2559,6 +2559,15 @@
             <group>
                 <name>TIM</name>
                 <group>
+                    <name>CCU</name>
+                    <file>
+                        <name>$PROJ_DIR$\MM32\mLLD\TIM\CCU\MM32_CCU.c</name>
+                    </file>
+                    <file>
+                        <name>$PROJ_DIR$\MM32\mLLD\TIM\CCU\MM32_CCU.h</name>
+                    </file>
+                </group>
+                <group>
                     <name>PIT</name>
                     <file>
                         <name>$PROJ_DIR$\MM32\mLLD\TIM\PIT\MM32_PIT.c</name>

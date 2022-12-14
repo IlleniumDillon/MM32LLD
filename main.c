@@ -2,7 +2,7 @@
  * @Author: IlleniumDillon 147900130@qq.com
  * @Date: 2022-10-30 13:29:44
  * @LastEditors: IlleniumDillon 147900130@qq.com
- * @LastEditTime: 2022-12-14 10:37:29
+ * @LastEditTime: 2022-12-14 12:19:26
  * @FilePath: \CODE\main.c
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  */
@@ -26,6 +26,7 @@
 #include "MM32_SPIDMA.h"
 #include "MM32_UARTDMA.h"
 #include "MM32_PWM.h"
+#include "MM32_CCU.h"
 
 int main()
 {
@@ -38,14 +39,18 @@ int main()
   MM32UART_RXPin rxpin = {.port = GPIOD, .pin = P06, .conf = INPUT_FLOATING, .af = AF7, .moudle = UART2};
 
   MM32PWM_Pin pwm1 = {.port = GPIOB, .pin = P06, .conf = AF_PUSHPULL, .af = AF2, .moudle = PWM6, .channel = CH1P};
+  
+  MM32CCU_Pin ccu1 = {.port = GPIOA, .pin = P15, .conf = INPUT_FLOATING, .af = AF1, .moudle = CCU3};
 
   //MM32SPI_moudleInit(&SCLK,&MOSI,&MISO,&CS,1000000,MODE2);
   //MM32SPIDMA_moudleInit(&SCLK,&MOSI,&MISO,&CS,1000000,MODE2);
 
   MM32UARTDMA_moudleInit(&txpin,&rxpin,NULL,NULL,115200);
   MM32PWM_pinInit(&pwm1,1000);
+  MM32CCU_pinInit(&ccu1,1000);
   uint8_t tdata[10] = {0x5a,0xa5,0xaa,0x55,0x12,0x5a,0xa5,0xaa,0x55,0x12};
   int i = 10000;
+  float d = 0;
   while(1)
   {
     /*uint8_t tdata = 0x5a;
@@ -56,7 +61,12 @@ int main()
     }*/
     //MM32SPIDMA_startDMA(SPI3,tdata,NULL,10,0);
     MM32UARTDMA_startTXDMA(UART2,tdata,10);
-    MM32PWM_setDuty(&pwm1,0.5);
+    MM32PWM_setDuty(&pwm1,0.7);
+    d = MM32CCU_getDuty(&ccu1);
+    if(d)
+    {
+      i = 100000;
+    }
     i = 100000;
     while(i--);
   }

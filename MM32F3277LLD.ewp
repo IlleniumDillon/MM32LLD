@@ -377,6 +377,7 @@
                     <state>$PROJ_DIR$\MM32\mLLD\DAC</state>
                     <state>$PROJ_DIR$\MM32\mLLD\ADC</state>
                     <state>$PROJ_DIR$\MM32\mLLD\TIM\PWM</state>
+                    <state>$PROJ_DIR$\MM32\mLLD\TIM\CCU</state>
                 </option>
                 <option>
                     <name>CCStdIncCheck</name>
@@ -2287,6 +2288,15 @@
             </group>
             <group>
                 <name>TIM</name>
+                <group>
+                    <name>CCU</name>
+                    <file>
+                        <name>$PROJ_DIR$\MM32\mLLD\TIM\CCU\MM32_CCU.c</name>
+                    </file>
+                    <file>
+                        <name>$PROJ_DIR$\MM32\mLLD\TIM\CCU\MM32_CCU.h</name>
+                    </file>
+                </group>
                 <group>
                     <name>PIT</name>
                     <file>
