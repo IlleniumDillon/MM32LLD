@@ -2433,6 +2433,15 @@
         <name>Code</name>
         <group>
             <name>Ctrl</name>
+            <group>
+                <name>transfunction</name>
+                <file>
+                    <name>$PROJ_DIR$\Code\Ctrl\transfunction\src\tf.c</name>
+                </file>
+                <file>
+                    <name>$PROJ_DIR$\Code\Ctrl\transfunction\include\tf.h</name>
+                </file>
+            </group>
         </group>
         <group>
             <name>Menu</name>

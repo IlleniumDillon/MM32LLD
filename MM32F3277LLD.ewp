@@ -378,6 +378,7 @@
                     <state>$PROJ_DIR$\MM32\mLLD\ADC</state>
                     <state>$PROJ_DIR$\MM32\mLLD\TIM\PWM</state>
                     <state>$PROJ_DIR$\MM32\mLLD\TIM\CCU</state>
+                    <state>$PROJ_DIR$\Code\Ctrl\transfunction\include</state>
                 </option>
                 <option>
                     <name>CCStdIncCheck</name>
@@ -2163,6 +2164,15 @@
         <name>Code</name>
         <group>
             <name>Ctrl</name>
+            <group>
+                <name>transfunction</name>
+                <file>
+                    <name>$PROJ_DIR$\Code\Ctrl\transfunction\src\tf.c</name>
+                </file>
+                <file>
+                    <name>$PROJ_DIR$\Code\Ctrl\transfunction\include\tf.h</name>
+                </file>
+            </group>
         </group>
         <group>
             <name>Menu</name>
