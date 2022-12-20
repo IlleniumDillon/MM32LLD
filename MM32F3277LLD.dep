@@ -408,7 +408,7 @@
             <inputs>
                 <tool>
                     <name>ILINK</name>
-                    <file> 180 131 51 28 17 110 351 16 109 116 177 368 73 76 30 112 173 332 365 157 66 62 337 128 13 22 363 174 343 324 161 102 138 43 46 41 141 181 171 172 176</file>
+                    <file> 180 131 51 28 17 110 351 16 109 116 177 368 73 76 30 112 173 332 365 157 66 62 337 128 13 22 363 174 343 324 161 102 138 43 46 41 380 141 181 171 172 176</file>
                 </tool>
             </inputs>
         </file>
@@ -1319,6 +1319,10 @@
                     <name>ICCARM</name>
                     <file> 238 191 259 209 249 322 57 134 165 97 168 12 18 216 257 267 223 252 255</file>
                 </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 223 191 209 57 165 267 259 216 249 322 134 252 238 12 97 168 18 257 255</file>
+                </tool>
             </inputs>
         </file>
         <file>
@@ -1587,7 +1591,7 @@
                 </tool>
                 <tool>
                     <name>BICOMP</name>
-                    <file> 197 259 191 209 249 168 223 307 134 57 211 227 12 97 18 257 216 255 195 238 293 322 165 267 252 338 137 288 296</file>
+                    <file> 197 191 209 249 168 223 134 57 211 216 227 12 97 18 257 259 255 195 307 238 293 322 165 267 252 338 137 288 296</file>
                 </tool>
             </inputs>
         </file>
@@ -1668,7 +1672,7 @@
                 </tool>
                 <tool>
                     <name>BICOMP</name>
-                    <file> 57 259 134 296 293 223 267 2 352 61 338 137 168 211 205 342 216 281 294 308 307 288 12 97 18 252 249 34 238 300 322 165 255 257 232 227 191 209 195 197</file>
+                    <file> 57 259 137 134 293 296 267 2 352 61 338 168 211 205 342 216 281 294 308 223 288 12 97 18 252 249 34 238 300 307 322 165 255 257 232 227 191 209 195 197</file>
                 </tool>
             </inputs>
         </file>
@@ -1745,11 +1749,11 @@
             <inputs>
                 <tool>
                     <name>ICCARM</name>
-                    <file> 223 252 259 255 249 322 57 134 165 97 168 12 18 216 257 267 211 307 288 137 204 276 245 196 199 98 235 217 275 247 230 260 248 308 352 280 303 187 213 287 290 262 263 264 269 268 254 265 266 205 232 2 34 342 297 338 300 281 293 294 296 238 191 209 227 195 197 295 312 36 244 218 200 201 258 251 220</file>
+                    <file> 223 252 259 255 249 322 57 134 165 97 168 12 18 216 257 267 211 307 288 137 204 276 245 196 199 98 235 217 275 247 230 260 248 308 352 280 303 187 213 287 290 262 263 264 269 268 254 265 266 205 232 2 34 342 297 338 300 281 293 294 296 238 191 209 227 195 197 295 312 36 244 218 200 201 258 251 220 377 379 378</file>
                 </tool>
                 <tool>
                     <name>BICOMP</name>
-                    <file> 204 134 293 230 295 223 213 290 259 34 36 205 280 227 57 196 308 352 216 296 201 338 187 255 168 199 249 248 268 269 266 218 211 235 300 312 244 238 252 12 97 18 257 307 276 98 217 322 262 2 342 61 297 258 251 165 267 137 288 245 275 247 260 303 287 264 265 263 254 232 281 294 191 209 195 197 220 200</file>
+                    <file> 216 251 18 262 252 97 307 249 297 295 12 2 230 227 259 257 98 217 308 134 205 258 379 204 338 187 377 276 322 342 223 61 238 300 57 211 235 280 312 244 255 168 199 196 248 352 213 268 290 269 266 34 296 293 36 218 201 165 267 137 288 245 275 247 260 303 287 264 265 263 254 232 281 294 191 209 195 197 220 200 378</file>
                 </tool>
             </inputs>
         </file>
@@ -1918,159 +1922,15 @@
             </outputs>
             <inputs>
                 <tool>
+                    <name>ICCARM</name>
+                    <file> 377 12 57 134 165 97 168 18 379 378 308 352 312 36 322</file>
+                </tool>
+                <tool>
                     <name>BICOMP</name>
                     <file> 312 134 379 165 12 308 322 57 18 97 168 377 378 352 36</file>
                 </tool>
             </inputs>
         </file>
-        <forcedrebuild>
-            <name>[MULTI_TOOL]</name>
-            <tool>ILINK</tool>
-        </forcedrebuild>
-        <forcedrebuild>
-            <name>$PROJ_DIR$\MM32\mLLD\SPI\MM32_SPIDMA.c</name>
-            <tool>ICCARM</tool>
-        </forcedrebuild>
-        <forcedrebuild>
-            <name>$PROJ_DIR$\MM32\mLLD\TIM\CCU\MM32_CCU.c</name>
-            <tool>ICCARM</tool>
-        </forcedrebuild>
-        <forcedrebuild>
-            <name>$PROJ_DIR$\MM32\mLLD\TIM\PWM\MM32_PWM.c</name>
-            <tool>ICCARM</tool>
-        </forcedrebuild>
-        <forcedrebuild>
-            <name>$PROJ_DIR$\MM32\mLLD\UART\MM32_UARTDMA.c</name>
-            <tool>ICCARM</tool>
-        </forcedrebuild>
-        <forcedrebuild>
-            <name>$PROJ_DIR$\MM32\mLLD\TIM\PIT\MM32_PIT.c</name>
-            <tool>ICCARM</tool>
-        </forcedrebuild>
-        <forcedrebuild>
-            <name>$PROJ_DIR$\MM32\mLLD\TIM\MM32_TIM.c</name>
-            <tool>ICCARM</tool>
-        </forcedrebuild>
-        <forcedrebuild>
-            <name>$PROJ_DIR$\MM32\mLLD\common.c</name>
-            <tool>ICCARM</tool>
-        </forcedrebuild>
-        <forcedrebuild>
-            <name>$PROJ_DIR$\MM32\mLLD\UART\MM32_UART.c</name>
-            <tool>ICCARM</tool>
-        </forcedrebuild>
-        <forcedrebuild>
-            <name>$PROJ_DIR$\MM32\mLLD\SPI\MM32_SPI.c</name>
-            <tool>ICCARM</tool>
-        </forcedrebuild>
-        <forcedrebuild>
-            <name>$PROJ_DIR$\MM32\mLLD\FLASH\MM32_FLASH.c</name>
-            <tool>ICCARM</tool>
-        </forcedrebuild>
-        <forcedrebuild>
-            <name>$PROJ_DIR$\MM32\mLLD\GPIO\MM32_GPIO.c</name>
-            <tool>ICCARM</tool>
-        </forcedrebuild>
-        <forcedrebuild>
-            <name>$PROJ_DIR$\MM32\mLLD\ADC\MM32_ADCDMA.c</name>
-            <tool>ICCARM</tool>
-        </forcedrebuild>
-        <forcedrebuild>
-            <name>$PROJ_DIR$\MM32\mLLD\EXTI\MM32_EXTI.c</name>
-            <tool>ICCARM</tool>
-        </forcedrebuild>
-        <forcedrebuild>
-            <name>$PROJ_DIR$\Code\Menu\menuTask.c</name>
-            <tool>ICCARM</tool>
-        </forcedrebuild>
-        <forcedrebuild>
-            <name>$PROJ_DIR$\MM32\mLLD\RCC\MM32_RCC.c</name>
-            <tool>ICCARM</tool>
-        </forcedrebuild>
-        <forcedrebuild>
-            <name>$PROJ_DIR$\MM32\mLLD\SDIO\MM32_SDCard.c</name>
-            <tool>ICCARM</tool>
-        </forcedrebuild>
-        <forcedrebuild>
-            <name>$PROJ_DIR$\MM32\mLLD\SDIO\MM32_SDIO.c</name>
-            <tool>ICCARM</tool>
-        </forcedrebuild>
-        <forcedrebuild>
-            <name>$PROJ_DIR$\MM32\mLLD\ADC\MM32_ADC.c</name>
-            <tool>ICCARM</tool>
-        </forcedrebuild>
-        <forcedrebuild>
-            <name>$PROJ_DIR$\Isr\Isr.c</name>
-            <tool>ICCARM</tool>
-        </forcedrebuild>
-        <forcedrebuild>
-            <name>$PROJ_DIR$\MM32\mLLD\DAC\MM32_DAC.c</name>
-            <tool>ICCARM</tool>
-        </forcedrebuild>
-        <forcedrebuild>
-            <name>$PROJ_DIR$\Code\Menu\menu.c</name>
-            <tool>ICCARM</tool>
-        </forcedrebuild>
-        <forcedrebuild>
-            <name>$PROJ_DIR$\Peripheral\P18\P18_TYPEDEF.c</name>
-            <tool>ICCARM</tool>
-        </forcedrebuild>
-        <forcedrebuild>
-            <name>$PROJ_DIR$\Peripheral\SWSDIO\SWSDIO.c</name>
-            <tool>ICCARM</tool>
-        </forcedrebuild>
-        <forcedrebuild>
-            <name>$PROJ_DIR$\Peripheral\SWSPI\SWSPI.c</name>
-            <tool>ICCARM</tool>
-        </forcedrebuild>
-        <forcedrebuild>
-            <name>$PROJ_DIR$\Peripheral\HOST\HOST.c</name>
-            <tool>ICCARM</tool>
-        </forcedrebuild>
-        <forcedrebuild>
-            <name>$PROJ_DIR$\Peripheral\UART_Upload\UART_Upload.c</name>
-            <tool>ICCARM</tool>
-        </forcedrebuild>
-        <forcedrebuild>
-            <name>$PROJ_DIR$\Peripheral\OLED\OLED.c</name>
-            <tool>ICCARM</tool>
-        </forcedrebuild>
-        <forcedrebuild>
-            <name>$PROJ_DIR$\Peripheral\P18\P18_Analog.c</name>
-            <tool>ICCARM</tool>
-        </forcedrebuild>
-        <forcedrebuild>
-            <name>$PROJ_DIR$\Peripheral\P18\P18_CMD.c</name>
-            <tool>ICCARM</tool>
-        </forcedrebuild>
-        <forcedrebuild>
-            <name>$PROJ_DIR$\Peripheral\OLED\OLED_Font.c</name>
-            <tool>ICCARM</tool>
-        </forcedrebuild>
-        <forcedrebuild>
-            <name>$PROJ_DIR$\Peripheral\P18\P18_CTRL.c</name>
-            <tool>ICCARM</tool>
-        </forcedrebuild>
-        <forcedrebuild>
-            <name>$PROJ_DIR$\Peripheral\P18\P18_UART.c</name>
-            <tool>ICCARM</tool>
-        </forcedrebuild>
-        <forcedrebuild>
-            <name>$PROJ_DIR$\Peripheral\SWIIC\SWIIC.c</name>
-            <tool>ICCARM</tool>
-        </forcedrebuild>
-        <forcedrebuild>
-            <name>$PROJ_DIR$\main.c</name>
-            <tool>ICCARM</tool>
-        </forcedrebuild>
-        <forcedrebuild>
-            <name>$PROJ_DIR$\StartUp\startUp_.c</name>
-            <tool>ICCARM</tool>
-        </forcedrebuild>
-        <forcedrebuild>
-            <name>$PROJ_DIR$\Code\Ctrl\transfunction\src\tf.c</name>
-            <tool>ICCARM</tool>
-        </forcedrebuild>
     </configuration>
     <configuration>
         <name>Release</name>
