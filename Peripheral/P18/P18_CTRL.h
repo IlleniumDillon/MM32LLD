@@ -2,7 +2,7 @@
  * @Author: IlleniumDillon 147900130@qq.com
  * @Date: 2022-11-01 21:33:38
  * @LastEditors: IlleniumDillon 147900130@qq.com
- * @LastEditTime: 2022-11-24 11:48:15
+ * @LastEditTime: 2022-12-22 13:54:29
  * @FilePath: \CODE\Peripheral\P18\P18_CTRL.h
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  */
@@ -11,6 +11,7 @@
 
 #include "P18_CMD.h"
 #include "P18_Analog.h"
+#include "tf.h"
 
 /**
  * @brief PID形式枚举
