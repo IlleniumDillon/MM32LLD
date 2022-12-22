@@ -2,7 +2,7 @@
  * @Author: IlleniumDillon 147900130@qq.com
  * @Date: 2022-10-30 13:29:44
  * @LastEditors: IlleniumDillon 147900130@qq.com
- * @LastEditTime: 2022-12-19 13:23:47
+ * @LastEditTime: 2022-12-22 09:17:53
  * @FilePath: \CODE\main.c
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  */
@@ -27,6 +27,8 @@
 
 int main()
 {
+  MM32DAC_pinInit(DAC1);
+  MM32DAC_pinInit(DAC2);
   tf_function_t tf;
   float num[3] = {1,-1.515,0.8057};
   float den[3] = {1,-1.078,0.3679};
@@ -39,6 +41,7 @@ int main()
   {
     time = systick_getval();
     output = tf_update(&tf,1);
+    MM32DAC_set2ChannelData12((uint16_t)output/2*1095,(uint16_t)output/2*1095);
     time = systick_getval() - time;
     time_s = (float)time/(float)120000000;
     if(output||time_s)
