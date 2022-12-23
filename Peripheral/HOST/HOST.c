@@ -2,7 +2,7 @@
  * @Author: IlleniumDillon 147900130@qq.com
  * @Date: 2022-11-15 18:05:08
  * @LastEditors: IlleniumDillon 147900130@qq.com
- * @LastEditTime: 2022-11-23 21:22:35
+ * @LastEditTime: 2022-12-22 19:27:50
  * @FilePath: \CODE\Peripheral\HOST\HOST.c
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  */
@@ -12,6 +12,23 @@
 uint8_t HOST_rxBuffer[HOST_RXSIZE] = {0};
 //串口接收计数
 uint8_t rxNum = 0;
+//示波器包结构，8个数据
+uint8_t SCOPE_txBuffer[] = {
+    0x55, 0xaa, 0x11,
+    0x55, 0xaa, 0x11, 0x55, 0xaa, 0xff, 0x01,
+    0x08,
+    0x00, 0x00 ,0x00, 0x00,
+    0x00, 0x00 ,0x00, 0x00,
+    0x00, 0x00 ,0x00, 0x00,
+    0x00, 0x00 ,0x00, 0x00,
+    0x00, 0x00 ,0x00, 0x00,
+    0x00, 0x00 ,0x00, 0x00,
+    0x00, 0x00 ,0x00, 0x00,
+    0x00, 0x00 ,0x00, 0x00,
+    0x01
+};
+//示波器包数据段位置
+uint8_t* SCOPE_dataPtr = &SCOPE_txBuffer[11];
 
 /// @brief 上位机串口尝试接收
 /// @param moudle 串口模块
@@ -63,4 +80,28 @@ void HOST_uartReadCallBack(void)
         memset(HOST_rxBuffer,0,HOST_RXSIZE);
     }
     
+}
+
+void HOST_uartUploadDmaInit(void)
+{
+    /*MM32UART_TXPin txpin2 = {.port = GPIOD, .pin = P00, .conf = AF_PUSHPULL, .af = AF8, .moudle = UART8};
+    MM32UART_RXPin rxpin2 = {.port = GPIOD, .pin = P01, .conf = INPUT_FLOATING, .af = AF8, .moudle = UART8};
+    MM32UARTDMA_moudleInit(&txpin2,&rxpin2,NULL,NULL,115200);*/
+    MM32UART_TXPin txpin = {.port = GPIOD, .pin = P05, .conf = AF_PUSHPULL, .af = AF7, .moudle = UART2};
+    MM32UART_RXPin rxpin = {.port = GPIOD, .pin = P06, .conf = INPUT_FLOATING, .af = AF7, .moudle = UART2};
+    MM32UARTDMA_moudleInit(&txpin,&rxpin,NULL,NULL,921600);
+}
+
+void HOST_uartUploadStart(void)
+{
+    //uint32_t time = systick_getval();
+    
+    MM32UARTDMA_startTXDMA(SCOPE_UART,SCOPE_txBuffer,44);
+    //MM32UART_writeBlocking(SCOPE_UART,SCOPE_txBuffer,44);
+    /*time = systick_getval()-time;
+    float time_s = (float)time/120000000;
+    if(time_s)
+    {
+      time_s = 0;
+    }*/
 }

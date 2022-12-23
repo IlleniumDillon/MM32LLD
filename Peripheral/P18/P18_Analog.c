@@ -2,7 +2,7 @@
  * @Author: IlleniumDillon 147900130@qq.com
  * @Date: 2022-11-18 09:49:03
  * @LastEditors: IlleniumDillon 147900130@qq.com
- * @LastEditTime: 2022-11-24 11:12:12
+ * @LastEditTime: 2022-12-23 10:00:45
  * @FilePath: \CODE\Peripheral\P18\P18_Analog.c
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  */
@@ -43,8 +43,8 @@ float P18_getVoltageFromADC(P18_channel_t channel)
     default:        return 0;
     }
 
-    //连续采样10次，去掉极值后取平均作为采样值
-    uint8_t samTime = 10;
+    //连续采样5次，去掉极值后取平均作为采样值
+    /*uint8_t samTime = 5;
     float sum = 0;
     float max = -10000;
     float min = 10000;
@@ -60,7 +60,9 @@ float P18_getVoltageFromADC(P18_channel_t channel)
 
     //将电压值转换到0-10的浮点数
     sum = sum / 4096;
-    return sum * 10;
+    return sum * 10;*/
+
+    return (float)MM32ADC_getData(srcpin) / 4096 * 10;
 }
 
 void P18_setVoltageToDAC(float voltage1, float voltage2)
@@ -68,6 +70,8 @@ void P18_setVoltageToDAC(float voltage1, float voltage2)
     //限幅
     if(voltage1 > 9.9)voltage1 = 9.9;
     if(voltage2 > 9.9)voltage2 = 9.9;
+    if(voltage1 < 0)voltage1 = 0;
+    if(voltage2 < 0)voltage2 = 0;
 
     //计算设定值
     uint16_t data1 = (uint16_t)(voltage1 / 10 * 4096);

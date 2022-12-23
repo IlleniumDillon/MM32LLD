@@ -2836,6 +2836,12 @@
                 <name>$PROJ_DIR$\Peripheral\P18\P18_CTRL.h</name>
             </file>
             <file>
+                <name>$PROJ_DIR$\Peripheral\P18\P18_TFCTRL.c</name>
+            </file>
+            <file>
+                <name>$PROJ_DIR$\Peripheral\P18\P18_TFCTRL.h</name>
+            </file>
+            <file>
                 <name>$PROJ_DIR$\Peripheral\P18\P18_TYPEDEF.c</name>
             </file>
             <file>

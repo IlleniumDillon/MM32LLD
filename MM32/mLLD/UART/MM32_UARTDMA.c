@@ -2,7 +2,7 @@
  * @Author: IlleniumDillon 147900130@qq.com
  * @Date: 2022-12-13 13:39:55
  * @LastEditors: IlleniumDillon 147900130@qq.com
- * @LastEditTime: 2022-12-13 16:02:34
+ * @LastEditTime: 2022-12-22 18:55:18
  * @FilePath: \CODE\MM32\mLLD\UART\MM32_UARTDMA.c
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  */
@@ -72,7 +72,7 @@ void MM32UARTDMA_moudleInit(MM32UART_TXPin* txpin, MM32UART_RXPin* rxpin, MM32UA
         //配置TX DMA
         MM32RCC_enableDMA1();
         //使能自动重装载
-        DMA1_DMA_CCR4->B.ARE = 1;
+        //DMA1_DMA_CCR4->B.ARE = 1;
         //设置高优先级
         DMA1_DMA_CCR4->B.PL = 2;
         //存储器数据宽度8bit
@@ -88,7 +88,7 @@ void MM32UARTDMA_moudleInit(MM32UART_TXPin* txpin, MM32UART_RXPin* rxpin, MM32UA
 
         //配置RX DMA
         //使能自动重装载
-        DMA1_DMA_CCR5->B.ARE = 1;
+        //DMA1_DMA_CCR5->B.ARE = 1;
         //设置高优先级
         DMA1_DMA_CCR5->B.PL = 2;
         //存储器数据宽度8bit
@@ -108,7 +108,7 @@ void MM32UARTDMA_moudleInit(MM32UART_TXPin* txpin, MM32UART_RXPin* rxpin, MM32UA
         //配置TX DMA
         MM32RCC_enableDMA1();
         //使能自动重装载
-        DMA1_DMA_CCR7->B.ARE = 1;
+        //DMA1_DMA_CCR7->B.ARE = 1;
         //设置高优先级
         DMA1_DMA_CCR7->B.PL = 2;
         //存储器数据宽度8bit
@@ -124,7 +124,7 @@ void MM32UARTDMA_moudleInit(MM32UART_TXPin* txpin, MM32UART_RXPin* rxpin, MM32UA
 
         //配置RX DMA
         //使能自动重装载
-        DMA1_DMA_CCR6->B.ARE = 1;
+        //DMA1_DMA_CCR6->B.ARE = 1;
         //设置高优先级
         DMA1_DMA_CCR6->B.PL = 2;
         //存储器数据宽度8bit
@@ -144,7 +144,7 @@ void MM32UARTDMA_moudleInit(MM32UART_TXPin* txpin, MM32UART_RXPin* rxpin, MM32UA
         //配置TX DMA
         MM32RCC_enableDMA1();
         //使能自动重装载
-        DMA1_DMA_CCR2->B.ARE = 1;
+        //DMA1_DMA_CCR2->B.ARE = 1;
         //设置高优先级
         DMA1_DMA_CCR2->B.PL = 2;
         //存储器数据宽度8bit
@@ -160,7 +160,7 @@ void MM32UARTDMA_moudleInit(MM32UART_TXPin* txpin, MM32UART_RXPin* rxpin, MM32UA
 
         //配置RX DMA
         //使能自动重装载
-        DMA1_DMA_CCR3->B.ARE = 1;
+        //DMA1_DMA_CCR3->B.ARE = 1;
         //设置高优先级
         DMA1_DMA_CCR3->B.PL = 2;
         //存储器数据宽度8bit
@@ -180,7 +180,7 @@ void MM32UARTDMA_moudleInit(MM32UART_TXPin* txpin, MM32UART_RXPin* rxpin, MM32UA
         //配置TX DMA
         MM32RCC_enableDMA2();
         //使能自动重装载
-        DMA2_DMA_CCR5->B.ARE = 1;
+        //DMA2_DMA_CCR5->B.ARE = 1;
         //设置高优先级
         DMA2_DMA_CCR5->B.PL = 2;
         //存储器数据宽度8bit
@@ -196,7 +196,7 @@ void MM32UARTDMA_moudleInit(MM32UART_TXPin* txpin, MM32UART_RXPin* rxpin, MM32UA
 
         //配置RX DMA
         //使能自动重装载
-        DMA2_DMA_CCR3->B.ARE = 1;
+        //DMA2_DMA_CCR3->B.ARE = 1;
         //设置高优先级
         DMA2_DMA_CCR3->B.PL = 2;
         //存储器数据宽度8bit
@@ -216,7 +216,7 @@ void MM32UARTDMA_moudleInit(MM32UART_TXPin* txpin, MM32UART_RXPin* rxpin, MM32UA
         //配置TX DMA
         MM32RCC_enableDMA2();
         //使能自动重装载
-        DMA2_DMA_CCR2->B.ARE = 1;
+        //DMA2_DMA_CCR2->B.ARE = 1;
         //设置高优先级
         DMA2_DMA_CCR2->B.PL = 2;
         //存储器数据宽度8bit
@@ -232,7 +232,7 @@ void MM32UARTDMA_moudleInit(MM32UART_TXPin* txpin, MM32UART_RXPin* rxpin, MM32UA
 
         //配置RX DMA
         //使能自动重装载
-        DMA2_DMA_CCR1->B.ARE = 1;
+        //DMA2_DMA_CCR1->B.ARE = 1;
         //设置高优先级
         DMA2_DMA_CCR1->B.PL = 2;
         //存储器数据宽度8bit
@@ -252,7 +252,7 @@ void MM32UARTDMA_moudleInit(MM32UART_TXPin* txpin, MM32UART_RXPin* rxpin, MM32UA
         //配置TX DMA
         MM32RCC_enableDMA2();
         //使能自动重装载
-        DMA2_DMA_CCR4->B.ARE = 1;
+        //DMA2_DMA_CCR4->B.ARE = 1;
         //设置高优先级
         DMA2_DMA_CCR4->B.PL = 2;
         //存储器数据宽度8bit
@@ -269,7 +269,7 @@ void MM32UARTDMA_moudleInit(MM32UART_TXPin* txpin, MM32UART_RXPin* rxpin, MM32UA
         //配置RX DMA
         MM32RCC_enableDMA1();
         //使能自动重装载
-        DMA1_DMA_CCR1->B.ARE = 1;
+        //DMA1_DMA_CCR1->B.ARE = 1;
         //设置高优先级
         DMA1_DMA_CCR1->B.PL = 2;
         //存储器数据宽度8bit
@@ -289,7 +289,7 @@ void MM32UARTDMA_moudleInit(MM32UART_TXPin* txpin, MM32UART_RXPin* rxpin, MM32UA
         //配置TX DMA
         MM32RCC_enableDMA2();
         //使能自动重装载
-        DMA2_DMA_CCR2->B.ARE = 1;
+        //DMA2_DMA_CCR2->B.ARE = 1;
         //设置高优先级
         DMA2_DMA_CCR2->B.PL = 2;
         //存储器数据宽度8bit
@@ -305,7 +305,7 @@ void MM32UARTDMA_moudleInit(MM32UART_TXPin* txpin, MM32UART_RXPin* rxpin, MM32UA
 
         //配置RX DMA
         //使能自动重装载
-        DMA2_DMA_CCR1->B.ARE = 1;
+        //DMA2_DMA_CCR1->B.ARE = 1;
         //设置高优先级
         DMA2_DMA_CCR1->B.PL = 2;
         //存储器数据宽度8bit
@@ -325,7 +325,7 @@ void MM32UARTDMA_moudleInit(MM32UART_TXPin* txpin, MM32UART_RXPin* rxpin, MM32UA
         //配置TX DMA
         MM32RCC_enableDMA2();
         //使能自动重装载
-        DMA2_DMA_CCR5->B.ARE = 1;
+        //DMA2_DMA_CCR5->B.ARE = 1;
         //设置高优先级
         DMA2_DMA_CCR5->B.PL = 2;
         //存储器数据宽度8bit
@@ -341,7 +341,7 @@ void MM32UARTDMA_moudleInit(MM32UART_TXPin* txpin, MM32UART_RXPin* rxpin, MM32UA
 
         //配置RX DMA
         //使能自动重装载
-        DMA2_DMA_CCR3->B.ARE = 1;
+        //DMA2_DMA_CCR3->B.ARE = 1;
         //设置高优先级
         DMA2_DMA_CCR3->B.PL = 2;
         //存储器数据宽度8bit

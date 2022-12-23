@@ -55,7 +55,7 @@
         <MemConfigValue>E:\Program Files\IAR Systems\Embedded Workbench 8.2\arm\CONFIG\debugger\MindMotion\MM32F3270.ddf</MemConfigValue>
     </PlDriver>
     <DebugChecksum>
-        <Checksum>2186906585</Checksum>
+        <Checksum>4100380283</Checksum>
     </DebugChecksum>
     <Exceptions>
         <StopOnUncaught>_ 0</StopOnUncaught>
@@ -85,9 +85,7 @@
     </ArmDriver>
     <struct_types>
         <Fmt0>MM32_DMA_CMAR1Bits-MA	4	0</Fmt0>
-        <Fmt1>MM32_DMA_CMAR2Bits-MA	4	0</Fmt1>
-        <Fmt2>MM32_DMA_CPAR1Bits-PA	4	0</Fmt2>
-        <Fmt3>MM32_DMA_CPAR2Bits-PA	4	0</Fmt3>
+        <Fmt1>MM32_DMA_CPAR1Bits-PA	4	0</Fmt1>
     </struct_types>
     <array_types>
         <Fmt0>uint32_t[10]	4	0</Fmt0>
@@ -142,9 +140,7 @@
         <Bp1>_ 0 "EMUL_CODE" "0x08002238" 0 0 1 "" 0 "" 0</Bp1>
         <Bp2>_ 0 "EMUL_CODE" "{$PROJ_DIR$\Peripheral\SWSDIO\SWSDIO.c}.119.11" 0 0 1 "" 0 "" 0</Bp2>
         <Bp3>_ 0 "EMUL_CODE" "{$PROJ_DIR$\Peripheral\SWSDIO\SWSDIO.c}.135.11" 0 0 1 "" 0 "" 0</Bp3>
-        <Bp4>_ 0 "EMUL_CODE" "{$PROJ_DIR$\main.c}.0.1" 0 0 1 "" 0 "" 0</Bp4>
-        <Bp5>_ 1 "EMUL_CODE" "{$PROJ_DIR$\main.c}.48.5" 0 0 1 "" 0 "" 0</Bp5>
-        <Count>6</Count>
+        <Count>4</Count>
     </Breakpoints2>
     <Aliases>
         <Count>0</Count>

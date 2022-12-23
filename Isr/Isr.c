@@ -2,7 +2,7 @@
  * @Author: IlleniumDillon 147900130@qq.com
  * @Date: 2022-11-01 22:23:55
  * @LastEditors: IlleniumDillon 147900130@qq.com
- * @LastEditTime: 2022-12-12 12:43:15
+ * @LastEditTime: 2022-12-22 14:06:49
  * @FilePath: \CODE\Isr\Isr.c
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  */
@@ -56,7 +56,8 @@ void TIM6_IRQHandler (void)
 	uint16_t state = TIM6_SR->U;														// 读取中断状态
 	TIM6_SR->U &= ~state;
     //UART_floatVarUpload(UART2,&(P18_device.shift[0]),3);
-	P18_ctrlAnalogCallBack();
+	//P18_ctrlAnalogCallBack();
+	P18_tfCtrlCallBack();
 }
 
 void TIM7_IRQHandler (void)
