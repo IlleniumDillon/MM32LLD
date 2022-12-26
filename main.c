@@ -74,9 +74,14 @@ int main()
     if(MM32GPIO_getPinState(GPIOF,P00))
     {
         i = 0;
-        inputs[0] = 0;
-        inputs[1] = 0;
+        inputs[0] = 1;
+        inputs[1] = 1;
+        MM32PIT_Close(PIT1);
         continue;
+    }
+    else
+    {
+        MM32PIT_Start(PIT1);
     }
     i++;
     if(i==8000000)
