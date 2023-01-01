@@ -10,7 +10,7 @@
 
 "--semihosting" 
 
-"--device=MM32F3277G9P" 
+"--device=MM32F3273G9P" 
 
 "--multicore_nr_of_cores=1" 
 

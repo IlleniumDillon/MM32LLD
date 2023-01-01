@@ -78,7 +78,7 @@
                 </option>
                 <option>
                     <name>OGChipSelectEditMenu</name>
-                    <state>MM32F3277G9P	MindMotion MM32F3277G9P</state>
+                    <state>MM32F3273G9P	MindMotion MM32F3273G9P</state>
                 </option>
                 <option>
                     <name>GenLowLevelInterface</name>
@@ -138,7 +138,7 @@
                 </option>
                 <option>
                     <name>GFPUDeviceSlave</name>
-                    <state>MM32F3277G9P	MindMotion MM32F3277G9P</state>
+                    <state>MM32F3273G9P	MindMotion MM32F3273G9P</state>
                 </option>
                 <option>
                     <name>FPU2</name>
@@ -670,7 +670,7 @@
                 <option>
                     <name>OOCOutputFormat</name>
                     <version>3</version>
-                    <state>0</state>
+                    <state>1</state>
                 </option>
                 <option>
                     <name>OCOutputOverride</name>
@@ -678,7 +678,7 @@
                 </option>
                 <option>
                     <name>OOCOutputFile</name>
-                    <state>MM32F3277LLD.srec</state>
+                    <state>MM32F3277LLD.hex</state>
                 </option>
                 <option>
                     <name>OOCCommandLineProducer</name>
@@ -686,7 +686,7 @@
                 </option>
                 <option>
                     <name>OOCObjCopyEnable</name>
-                    <state>0</state>
+                    <state>1</state>
                 </option>
             </data>
         </settings>
