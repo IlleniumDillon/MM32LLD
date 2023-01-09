@@ -2,7 +2,7 @@
  * @Author: IlleniumDillon 147900130@qq.com
  * @Date: 2022-10-30 13:29:44
  * @LastEditors: IlleniumDillon 147900130@qq.com
- * @LastEditTime: 2022-12-23 10:02:17
+ * @LastEditTime: 2023-01-06 12:05:25
  * @FilePath: \CODE\main.c
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  */
@@ -65,36 +65,26 @@ int main()
   P18_tfInit();
   P18_analogPinInit();
   MM32PIT_timerTaskInit(PIT1,2000,1);
+  MM32PIT_timerTaskInit(PIT2,1000,2);
   //Menu_init();
   //Menu_display();
 
   while(1)
   {
-    static unsigned long i = 0;
     if(MM32GPIO_getPinState(GPIOF,P00))
     {
-        i = 0;
         inputs[0] = 1;
         inputs[1] = 1;
         MM32PIT_Close(PIT1);
+        MM32PIT_Close(PIT2);
         continue;
     }
     else
     {
         MM32PIT_Start(PIT1);
+        MM32PIT_Start(PIT2);
     }
-    i++;
-    if(i==8000000)
-    {
-        inputs[0] = 1;
-        inputs[1] = 1;
-    }
-    else if(i==16000000)
-    {
-        i=0;
-        inputs[0] = 5;
-        inputs[1] = 5;
-    }
+    
     //HOST_uartUploadStart();
     /*if(transeFlag)
     {

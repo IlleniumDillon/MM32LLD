@@ -2,7 +2,7 @@
  * @Author: IlleniumDillon 147900130@qq.com
  * @Date: 2022-11-01 22:23:55
  * @LastEditors: IlleniumDillon 147900130@qq.com
- * @LastEditTime: 2022-12-22 14:06:49
+ * @LastEditTime: 2023-01-06 15:16:06
  * @FilePath: \CODE\Isr\Isr.c
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  */
@@ -64,7 +64,35 @@ void TIM7_IRQHandler (void)
 {
 	uint16_t state = TIM7_SR->U;														// 读取中断状态
 	TIM7_SR->U &= ~state;															// 清空中断状态
-	OLED_printBuf();
+	//OLED_printBuf();
+	//inputs[0] = inputs[0] + 0.1;
+	//inputs[1] = inputs[0] + 0.1;
+    
+	static float step = 0.005;
+	if(inputs[0] >= 5)
+	{
+		step = -0.005;
+	}
+	else if(inputs[0] <= 1)
+	{
+		step = 0.005;
+	}
+	inputs[0] = inputs[0] + step;
+	inputs[1] = inputs[0];
+    
+    /*static int time = 0;
+    time++;
+    if(time == 2000)
+    {
+      inputs[0] = 5;
+      inputs[1] = 5;
+    }
+    else if(time == 4000)
+    {
+      inputs[0] = 1;
+      inputs[1] = 1;
+      time = 0;
+    }*/
 }
 
 void EXTI0_IRQHandler(void)

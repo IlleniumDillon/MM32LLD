@@ -13,6 +13,7 @@
 #include "P18_Analog.h"
 #include "tf.h"
 #include "HOST.h"
+#include "BoucWen.h"
 
 extern tf_function_t P18_X_BSF, P18_Y_BSF;
 extern tf_function_t P18_X_CTRL, P18_Y_CTRL;

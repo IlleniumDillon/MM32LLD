@@ -379,6 +379,7 @@
                     <state>$PROJ_DIR$\MM32\mLLD\TIM\PWM</state>
                     <state>$PROJ_DIR$\MM32\mLLD\TIM\CCU</state>
                     <state>$PROJ_DIR$\Code\Ctrl\transfunction\include</state>
+                    <state>$PROJ_DIR$\Code\Ctrl\BoucWen</state>
                 </option>
                 <option>
                     <name>CCStdIncCheck</name>
@@ -2164,6 +2165,15 @@
         <name>Code</name>
         <group>
             <name>Ctrl</name>
+            <group>
+                <name>BoucWen</name>
+                <file>
+                    <name>$PROJ_DIR$\Code\Ctrl\BoucWen\BoucWen.c</name>
+                </file>
+                <file>
+                    <name>$PROJ_DIR$\Code\Ctrl\BoucWen\BoucWen.h</name>
+                </file>
+            </group>
             <group>
                 <name>transfunction</name>
                 <file>
