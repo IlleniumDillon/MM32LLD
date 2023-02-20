@@ -2,7 +2,7 @@
  * @Author: IlleniumDillon 147900130@qq.com
  * @Date: 2022-12-22 13:58:14
  * @LastEditors: IlleniumDillon 147900130@qq.com
- * @LastEditTime: 2023-01-09 11:09:37
+ * @LastEditTime: 2023-01-20 19:56:33
  * @FilePath: \CODE\Peripheral\P18\P18_TFCTRL.c
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  */
@@ -13,6 +13,9 @@ tf_function_t P18_X_CTRL, P18_Y_CTRL;
 
 BoucWenPram P18_Bouc1;
 BoucWenPram P18_Bouc2;
+
+poly5d P18_PP_X;
+poly5d P18_PP_Y;
 
 float inputs[2] = {0,0};
 float BSF_outputs[2] = {0,0};
@@ -66,10 +69,21 @@ void P18_tfInit(void)
     P18_Bouc2.xlast = 0;
     P18_Bouc2.zlast = 0;
     P18_Bouc2.xdotlast = 0;
+
+    PP_poly5dInit(&P18_PP_X,1,0,0,0.0005);
+    PP_poly5dInit(&P18_PP_Y,1,0,0,0.0005);
 }
 
 void P18_tfCtrlCallBack(void)
 {
+    inputs[0] = PP_poly5dOneStep(&P18_PP_X);
+    inputs[1] = PP_poly5dOneStep(&P18_PP_Y);
+    if(P18_PP_X.stepToGo == 0 && P18_PP_Y.stepToGo == 0)
+    {
+        P18_PP_X.stepToGo = P18_PP_Y.stepToGo = -1;
+        uint8_t r = 0x5a;
+        MM32UART_write8(UART8,&r);
+    }
   //uint32_t time = systick_getval();
     FB_inputs[0] = P18_getVoltageFromADC(CHANNEL0);
     FB_inputs[1] = P18_getVoltageFromADC(CHANNEL1);

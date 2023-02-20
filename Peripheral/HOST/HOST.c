@@ -2,7 +2,7 @@
  * @Author: IlleniumDillon 147900130@qq.com
  * @Date: 2022-11-15 18:05:08
  * @LastEditors: IlleniumDillon 147900130@qq.com
- * @LastEditTime: 2022-12-22 19:27:50
+ * @LastEditTime: 2023-01-20 15:44:14
  * @FilePath: \CODE\Peripheral\HOST\HOST.c
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  */
@@ -30,6 +30,9 @@ uint8_t SCOPE_txBuffer[] = {
 //示波器包数据段位置
 uint8_t* SCOPE_dataPtr = &SCOPE_txBuffer[11];
 
+float HOST_rxData[8] = {0};
+uint8_t HOST_newDataFlag = 0;
+
 /// @brief 上位机串口尝试接收
 /// @param moudle 串口模块
 /// @param dat 接收数据指针
@@ -49,10 +52,23 @@ uint8_t host_query(MM32UART_Moudle moudle, uint8_t *dat)
 /// @brief 解释上位机指令
 void HOST_uartDecode(void)
 {
-    float data[2] = {0};
+    /*float data[2] = {0};
     memcpy(data,&HOST_rxBuffer[1],2*sizeof(float));
     target_X = data[0];
-    target_Y = data[1];
+    target_Y = data[1];*/
+    extern poly5d P18_PP_X;
+    extern poly5d P18_PP_Y;
+    memcpy(HOST_rxData,&HOST_rxBuffer[1],8*sizeof(float));
+    PP_poly5dNewPos(&P18_PP_X, 
+                    HOST_rxData[0],
+                    HOST_rxData[1],
+                    HOST_rxData[2],
+                    HOST_rxData[3]);
+    PP_poly5dNewPos(&P18_PP_Y, 
+                    HOST_rxData[4],
+                    HOST_rxData[5],
+                    HOST_rxData[6],
+                    HOST_rxData[7]);
 }
 
 void HOST_uartReadCallBack(void)
@@ -70,9 +86,9 @@ void HOST_uartReadCallBack(void)
         }
     }
     //判断帧尾
-    else if(rxNum == 10)
+    else if(rxNum == 34)
     {
-        if(HOST_rxBuffer[rxNum-1]!=0X5A)
+        if(HOST_rxBuffer[rxNum-1]==0XA5)
         {
             HOST_uartDecode();
         }

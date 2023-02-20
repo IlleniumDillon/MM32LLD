@@ -2443,6 +2443,15 @@
                 </file>
             </group>
             <group>
+                <name>PathPlan</name>
+                <file>
+                    <name>$PROJ_DIR$\Code\Ctrl\PathPlan\PathPlan.c</name>
+                </file>
+                <file>
+                    <name>$PROJ_DIR$\Code\Ctrl\PathPlan\PathPlan.h</name>
+                </file>
+            </group>
+            <group>
                 <name>transfunction</name>
                 <file>
                     <name>$PROJ_DIR$\Code\Ctrl\transfunction\src\tf.c</name>

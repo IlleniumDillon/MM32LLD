@@ -380,6 +380,7 @@
                     <state>$PROJ_DIR$\MM32\mLLD\TIM\CCU</state>
                     <state>$PROJ_DIR$\Code\Ctrl\transfunction\include</state>
                     <state>$PROJ_DIR$\Code\Ctrl\BoucWen</state>
+                    <state>$PROJ_DIR$\Code\Ctrl\PathPlan</state>
                 </option>
                 <option>
                     <name>CCStdIncCheck</name>
@@ -2172,6 +2173,15 @@
                 </file>
                 <file>
                     <name>$PROJ_DIR$\Code\Ctrl\BoucWen\BoucWen.h</name>
+                </file>
+            </group>
+            <group>
+                <name>PathPlan</name>
+                <file>
+                    <name>$PROJ_DIR$\Code\Ctrl\PathPlan\PathPlan.c</name>
+                </file>
+                <file>
+                    <name>$PROJ_DIR$\Code\Ctrl\PathPlan\PathPlan.h</name>
                 </file>
             </group>
             <group>

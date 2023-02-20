@@ -55,7 +55,7 @@
         <MemConfigValue>E:\Program Files\IAR Systems\Embedded Workbench 8.2\arm\CONFIG\debugger\MindMotion\MM32F3270.ddf</MemConfigValue>
     </PlDriver>
     <DebugChecksum>
-        <Checksum>4050342080</Checksum>
+        <Checksum>3585293763</Checksum>
     </DebugChecksum>
     <Exceptions>
         <StopOnUncaught>_ 0</StopOnUncaught>
